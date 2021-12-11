@@ -1,0 +1,8 @@
+#--- dependencies on other JPF modules
+
+
+#--- what JPF should run
+target = com.main.Test41214
+classpath = bin:../lib/asm-all-5.0.3.jar:lib/log4j-1.2.13.jar:../lib/coring-1.4.jar:../lib/jacontebe-1.0.jar:../lib/mockito-all-1.9.5.jar:../lib/powermock-mockito-1.5.3-full.jar
+target_args=-mo
+#--- other stuff that defines how to run JPF

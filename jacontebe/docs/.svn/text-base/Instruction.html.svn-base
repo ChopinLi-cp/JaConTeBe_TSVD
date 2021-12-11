@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+    <meta charset="UTF-8">
+        <title>Instruction for Adding New Bugs</title>
+    </head>
+    <body>
+        <a href="#JaconTebe">1.About JaconTebe</a>
+        <br>
+        <a href="#add">2.How to add a new bug</a>
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#step1">2.1.Add Java test</a>
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#step2">2.2.Add descriptions and scripts</a>
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#step3">2.3.Update other parts</a>
+        <br>
+		<a href="#addproject">3.How to add a new project</a>
+        <br>
+        <a href="#appendix">4.Appendix</a>
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#description_template">4.1.HTML description template</a>
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#index_template">4.2.HTML index template</a><br>
+		<a href="#Jacontebe API">4.3.Jacontebe API</a>
+        <div id="JaconTebe">
+            <h2><b>1.JaconTebe</b></h2>
+            <p>
+            The JaConTeBe (Java Concurrency Test Benchmark) suite is open to add more concurrency bugs. The instructions in this document should be followed if you would like to add new bugs. To start, you should prepare:
+			<ul>
+			<li>Java test to reproduce the bug.</li>
+            <li>Bug report's page. All bugs in this benchmark are from real-world projects. If you want to add a new bug, you should provide its link to the project's on-line bug management system.</li>
+            <li>The buggy project's binary jar, source code zip and link.</li>
+			<li>Dependent jars.</li>
+			<li>Shell or batch scripts to run the test</li>
+            </ul>
+            </p>
+			All contents in "<>" brackets with blue italic font in this document should be replaced with the specific information of each test.
+        </div>
+        <div id="add">
+            <h2 ><b>2.How to add a new bug</b></h2>
+            <div id="step1">
+                <h3 ><b>2.1.Add Java test</b></h3>
+                <p>
+                    <h4><b>2.1.1 Implement test</b></h4> 
+                    The test should follow the format shown in the following code template:
+					
+                    <pre>
+=================Code Template Starts=================
+import edu.illinois.jacontebe.OptionHelper;
+import edu.illinois.jacontebe.framework.Reporter;
+
+/**
+ * 
+ * Bug URL: <font color="blue"><i>&lt;online bug report's URL></i></font>
+ * Reproduce environment: <font color="blue"><i>&lt;project jar version, or other necessary jars></i></font>
+ * This is a <font color="blue"><i>&lt;bug type: e.g. race, deadlock, ordering violation,...></i></font>.
+ * 
+ * @author <font color="blue"><i>&lt;author name></i></font>
+ */
+public class <font color="blue"><i>&lt;project name + bug ID, e.g. Dbcp369></i></font>{
+
+    private volatile boolean buggy=false;
+
+    public static void main(String[] args){
+        Reporter.reportStart(<font color="blue"><i>&lt;test name, e.g. "dbcp123"></i></font>,
+                             <font color="blue"><i>&lt;time required to reproduce the bug></i></font>,
+                             <font color="blue"><i>&lt;bug type,e.g. "race"></i></font>);
+        if (!OptionHelper.optionParse(args)) {
+            return;
+        }
+	<font color ="blue"><i>//Start deadlock monitor if necessary</i></font>
+        <font color="blue"><i>//Real test code here</i></font>
+        Reporter.reportEnd(buggy);
+    }
+}
+=================Code Template Ends=================
+                    </pre>
+Please refer to <a href="#Jacontebe API">Jacontebe APIs</a> for more information about test reporting, option parsing and deadlock monitoring.
+                </p>
+                <p>
+                    <h4><b>2.1.2 Save test.</b></h4> 
+                    If the bug is from any project listed below, please save the test to `benchmarks/<font color="blue"><i>&lt;project name></i></font>/src`. Otherwise, please refer to <a href="#addproject">add new project</a> section.
+                    <br>Existing test projects:
+					<ul>
+                        <li>dbcp: test project for Apache Commons DBCP</li>
+                        <li>derby: test project for Apache Derby</li>
+                        <li>groovy: test project for Groovy</li>
+                        <li>jdk6: test project for JDK 6</li>
+                        <li>jdk7: test project for JDK 7</li>
+                        <li>log4j: test project for Apache Log4j</li>
+                        <li>lucene: test project for Apache Lucene</li>
+                        <li>pool: test project for Apache Commons Pool</li>
+                    </ul>
+                </p>
+                <p>
+                    <h4><b>2.1.3 Add test dependent jars</b></h4> 
+                    There are two levels of lib directories: project level and benchmark suit level.<br>
+					If the jar file is required by only one project, please put it into the project's lib directory (`benchmarks/project/lib').<br>
+					If the jar file is required by more than one project, please put it into the benchmark suite's lib directory(`benchmarks/lib').
+					
+                </p>
+            </div>
+            <div id="step2">
+                <h3 ><b>2.2.Add bug description and test scripts</b></h3>
+                <p>
+                    <h4><b>2.2.1 HTML description file</b></h4> 
+                    You should put a description HTML file to `/benchmarks/<font color="blue"><i>&lt;project name></i></font>/description/`,  and name it after Bug ID, e.g. 369.html. 
+                    <br>The description should follow the format of this <a href="#description_template">HTML description template</a>.
+                    You can also refer to these two examples for more information:<br>
+					The example of data race bug description: 'benchmarks\jdk6\description\7100996.html'.<br>
+					The example of the deadlock description:\jdk6\description\6588239.html.
+                    
+                </p>
+                <p>
+                    <h4><b>2.2.2 Script file</b></h4> 
+                    The new script files to run the test should be put into  '/benchmarks/<font color="blue"><i>&lt;project name></i></font>/scripts/' directory. 
+                    <br>A Linux shell script is required. A Windows batch script is recommended but optional. 
+                    <br>The highlighted scripts are necessary for each test, and the others are required only when the test has dependency on certain Java versions. 
+                    <br>
+                    <ul>
+                    <li><b>Linux script template:</b>
+                    <pre>
+<span style="background: yellow">#!/bin/bash</span>
+<span style="background: yellow">source $(cd `dirname $0`; pwd)/jacontebe.sh</span>
+#If the bug depends on specific JDK's versions, check_java_version is needed.
+check_java_version $*
+#If the current JDK's version doesn't meet the requirement and no proper JDK path is passed in parameters, report_warning is needed.
+if[<font color="blue"><i>&lt;current JDK's version is not proper and no proper JDK path is passed, e.g. [$MAJORVER -gt 6] && [${JAVAL} == ""]>]</i></font>
+then 
+    report_warning <font color="blue"><i>&lt;affected JDK's version, e.g. JDK 1.6.0></i></font> <font color="blue"><i>&lt;fixed JDK's version, e.g. JDK 1.7.0></i></font> <font color="blue"><i>&lt;bug ID, e.g. 4779253></i></font>
+else
+    <span style="background: yellow">classes_to_compile=<font color="blue"><i>&lt;classes to compile, e.g. src/Test4779253.java></i></font></span>
+    <span style="background: yellow">class_to_run=<font color="blue"><i>&lt;class to run, e.g. Test4779253></i></font></span>
+    <span style="background: yellow">Opt=<font color="blue"><i>&lt;options you need to run the class, e.g. "-Xbootclasspath/p:classes"></i></font></span>
+    <span style="background: yellow">compile_and_run $param</span>
+    <font color="blue"><i>&lt;other operations, e.g. delete generated files></i></font>
+fi
+                    </pre>
+                    
+                    </li>
+                    <br>
+                    <li><b>Windows script template:</b>
+                    <pre>
+<span style="background: yellow">@ECHO off</span>
+::Make sure the "prepare.bat" is under '/benchmarks/(project)/scripts' directory.
+<span style="background: yellow">CALL %~dp0\prepare.bat %*</span>
+::If the bug depends on specific JDK's version, checking JDK's version is needed.
+<font color="blue"><i>&lt;check if current JDK's version is not proper, e.g. IF %JmajorV% GTR 8></i></font> (
+    <font color="blue"><i>&lt;check if proper JDK's path is passed in parameters: IF NOT DEFINED JAVALOC></i></font>(
+            SET flag=1
+        )
+    )
+IF %flag% EQU 1 (
+    CALL %commonScriptPath%\jacontebe.bat reportwarning <font color="blue"><i>&lt;affected JDK's version, e.g. JDK 1.6.0></i></font> <font color="blue"><i>&lt;fixed JDK's version, e.g. JDK 1.7.0></i></font> <font color="blue"><i>&lt;bug ID, e.g. 4779253></i></font>
+) ELSE (
+    <span style="background: yellow">SET class2compile=<font color="blue"><i>&lt;classes to compile, e.g. src/Test4779253.java></i></font></span>
+    <span style="background: yellow">SET class2run=<font color="blue"><i>&lt;class to run, e.g. Test4779253></i></font></span>
+    <span style="background: yellow">SET options=<font color="blue"><i>&lt;options for JVM, e.g. "-Xbootclasspath/p:classes"></i></font></span>
+    <span style="background: yellow">CALL %commonScriptPath%\jacontebe.bat compileAndRun %Param%</span>
+)
+<font color="blue"><i>&lt;clean up operations if necessary, e.g. delete generated files></i></font>
+<span style="background: yellow">PAUSE</span>
+                    </pre>
+                    
+                </li>
+<li><b>Examples:</b><br>
+For a simple test example, please refer to <i>'/benchmarks/dbcp/scripts/65.sh'</i> and <i>'/benchmarks/dbcp/scripts/65.bat'</i>.
+                    <br>For a Java version checking example, please refer to <i>'/benchmarks/jdk6/scripts/6648001.sh'</i> and <i>'/benchmarks/jdk6/scripts/6648001.bat'</i>.
+					</li>
+                </p>
+            </div>
+            <div id="step3">
+                <h3 ><b>2.3.Update other parts of the project</b></h3>
+                <p>
+                    <h4><b>2.3.1.Update the index.html page in the project.</b></h4> 
+                    If the index.html is already in `/benchmarks/<font color="blue"><i>&lt;project name></i></font>/description/`, you should add a row to the existing table in the index.html. 
+                    <br>If not, you should refer to <a href="#index_template">HTML index template</a> and add a new table.
+                </p>
+                <p>
+                    <h4><b>2.3.2.Update the README.md file in the top-level directory.</b></h4> 
+                    <p>
+                        Find the part of "The top-level JaConTeBe directories and files are organized as follows:". 
+                        <br>If the buggy project is already in the suite, update the total numbers of bugs. Otherwise, add a new line for the project. 
+                        <br>Please remember to sort the directories alphabetically.
+                    </p>
+                </p>
+            </div>
+        </div>
+
+		<div id="addproject">
+		<h2><b>3.Add a new project</b></h2>
+		<p>
+		All projects in this benchmark suite are organized as Eclipse projects. So you only need to create a new Eclipse Java project and then put it into the benchmark directory.<br>
+		After creating the project, a few more things are required to do for running test scripts.
+		<ul>
+		<li>Create a "description" directory under the project directory</li>
+		<li>Follow <a href="#index_template">the template</a> to create an Index.html in project/description.</li>
+		<li>Create a "scripts" directory under the project directory.</li>
+		<li>Create a Linux symbolic link from benchmark/project/scripts/all.sh to benchmark/scripts/all.sh:<br>
+		<i>cd benchmark/project/scripts</i><br>
+		<i>ln -s ../../scripts/all.sh all.sh</i>
+		</li>
+		<li>Create a Linux symbolic link from benchmark/project/scripts/jacontebe.sh to benchmark/scripts/jacontebe.sh:<br>
+		<i>cd benchmark/project/scripts</i><br>
+		<i>ln -s ../../scripts/jacontebe.sh jacontebe.sh</i>
+		</li>
+		<li>Copy prepare.bat file from other project into benchmark/project/scripts.</li>
+		<li>Modify README.md file to add new project's information.</li>
+		<ul>
+		
+		</div>
+		
+        <div id="appendix">
+            <div id="description_template">
+    
+	<h2><b>4.Appendix</b></h2>
+    <h4><b>4.1.HTML description template</b></h4>
+    The scripts highlighted with green are necessary for deadlock bugs only, and the those highlighted with yellow are required for non-deadlock bugs.<br>
+    =================Template Starts=================
+
+    <h1>
+        <b>Bug <font color="blue"><i>&lt;bug ID></i></font></b>
+    </h1>
+
+    <h2>
+        <b>Bug Description:</b>
+    </h2>
+
+    <p>
+        
+        This is a <font color="blue"><i>&lt;bug type: e.g. race, deadlock, ordering violation,...></i></font>.<br>
+<font color="blue"><i>&lt;Describe how the bug is caused></i></font><br><span style="background: yellow">An exception expected
+        by running the test:
+    </span><br>
+
+<pre><span style="background: #90EE90"><font color="blue"><i>&lt;Add the thread dump here, please insert it between the two pre notation in the HTML file.</i></font></span>
+    </pre>
+    <pre><span style="background: yellow"><font color="blue"><i>&lt;Add the exception stack trace here, please insert it between the two pre notation in the HTML file. </i></font></span>
+    </pre>
+    
+        More details about this bug are at <a href="https://"><font color="blue"><i>&lt;project name in capital letters - bug ID, e.g. DBCP-369, please update the hyperlink></i></font></a>
+        JIRA page.<br>
+    
+
+    </p><h2>
+        <b><span style="background: yellow">Interleaving Description:</span></b>
+    </h2>
+    <p>
+    <span style="background: yellow">
+    Numbers in following code snippets present the global execution
+    sequence.</span>
+    <pre><span style="background: yellow"><font color="blue"><i>&lt;Put the interleaving demonstration code here></i></font></span> </pre>
+    <p>
+        <span style="background: yellow"><font color="blue"><i>&lt;Describe the interleaving steps></i></font></span>
+    </p>
+    </p>
+    
+    <h2>
+        <b>How To Reproduce:</b>
+    </h2>
+
+    <p>
+        This bug is reproduced under <font color="blue"><i>&lt;project name + version, e.g. Groovy 1.4.0></i></font> and <font color="blue"><i>&lt;JDK version, e.g. JDK 1.6.0></i></font>. <br>Execute
+the following scripts to run the test to reproduce the bug (assume the
+location of the <font color="blue"><i>&lt;project name, e.g. dbcp></i></font> test project is <font color="blue"><i>&lt;project name_test_home, e.g. dbcp_test_home></i></font>.</p>
+    <p>
+    <b>Linux:</b>
+    <br>
+    <i>${<font color="blue"><i>&lt;project name></i></font>_test_home}/scripts/<font color="blue"><i>&lt;bug ID></i></font>.sh <font color="blue"><i>&lt; available arguments, e.g.[--threadnum arg], [--loops arg]></i></font></i>
+    <br>
+
+    <b>Windows:</b>
+       <br>
+    <i>%<font color="blue"><i>&lt;project name></i></font>_test_home%\scripts\<font color="blue"><i>&lt;bug ID></i></font>.bat <font color="blue"><i>&lt; available arguments, e.g.[--threadnum arg], [--loops arg]></i></font></i>
+    <br>  </p>
+    <font color="blue"><i>&lt;The following are available arguments for the test.></i></font>
+
+            <p><b>Example:</b>
+    <br>
+        Use monitor to report and terminate the program when deadlock happens:<i><br>${<font color="blue"><i>&lt;project name></i></font>_test_home}/scripts/<font color="blue"><i>&lt;bug ID></i></font>.sh</i>
+    <br><br>
+        Turn off monitor:<br> <i> ${<font color="blue"><i>&lt;project name></i></font>_test_home}/scripts/<font color="blue"><i>&lt;bug ID></i></font>.sh
+            --monitoroff</i>
+    </p>
+    <p>
+        The default argument values will be taken if not specified. For
+        example, <br>
+        <i>${<font color="blue"><i>&lt;project name></i></font>_test_home}/scripts/<font color="blue"><i>&lt;test ID></i></font>.sh</i> <br>is the same as
+        <br>
+        <i>${<font color="blue"><i>&lt;project name></i></font>_test_home}/scripts/<font color="blue"><i>&lt;test ID></i></font>.sh --threadnum <font color="blue"><i>&lt;default value for threadnum, e.g. 2></i></font> --loops <font color="blue"><i>&lt;default value for loops, e.g. 10></i></font></i>
+    </p>
+      
+
+    <table border="1">
+        <tbody>
+            <tr>
+                <td>Option</td>
+                <td>Function</td>
+                <td>Default Value</td>
+                <td>Valid Values</td>
+
+            </tr>
+
+
+            <tr>
+                <td>--monitoroff, -mo</td>
+                <td>Turn off to stop reporting bug messages and ending program
+                    when the test runs into the expected concurrency bug which is
+                    a deadlock.<br> User has to terminate the program manually
+                    when this option is set.
+                </td>
+                <td>N/A</td>
+                <td>N/A</td>
+
+            </tr>
+            <tr>
+                <td>--javaloc</td>
+                <td>The path to JDK that is eligible to reproduce the bug, if your java environment is not eligible.
+<br>In this case, it's <font color="blue"><i>&lt;JDK version, e.g. JDK 1.6.0></i></font>.
+It should be the absolute path to the JDK's java starter and ended with "/".<br>
+For example: ~/jdk/home/bin/</td>
+                <td>N/A</td>
+                <td>string</td>
+            </tr>
+
+            <tr>
+            <td>--sleepTime, -st</td>
+            <td>milliseconds to sleep between two condition checks where race could happen. Default value is <font color="blue"><i>&lt;default value, e.g. 1000></i></font> if
+this option is not set explicitly.
+            </td>
+             <td><font color="blue"><i>&lt;default value, e.g. 1000></i></font></td>
+            <td>integer</td>
+            </tr>
+            <tr>
+            <td>--threadnum,-tn</td>
+            <td>set the number of threads, when the test checks whether a race could happen. Default value is <font color="blue"><i>&lt;default value, e.g. 2></i></font> if
+this option is not set explicitly.</td>
+            <td><font color="blue"><i>&lt;default value, e.g. 2></i></font></td>
+            <td>integer</td>
+        </tr>
+
+
+        <tr>
+            <td>--loops,-l</td>
+            <td>set the number of loops, when the test checks whether a race could happen. Default value is <font color="blue"><i>&lt;default value, e.g. 10></i></font> if
+this option is not set explicitly.</td>
+            <td><font color="blue"><i>&lt;default value, e.g. 10></i></font></td>
+            <td>integer</td>
+        </tr>
+
+
+        </tbody>
+
+    </table>
+<br>
+    =================Template Ends=================
+
+
+    <br>
+   
+            </div>
+
+            <div id="index_template">
+            <h4><b>4.2.HTML index template</b></h4>
+    =================Template Starts=================
+
+
+<h2>Bug Summary<br></h2>
+<table style="border-style: solid;" border="1">
+
+        <tbody><tr>
+            <td>Test</td>
+            <td>Bug ID</td>
+            <td>Bug Type</td>
+            <td>Bug Link</td>
+
+            <td>Buggy Project Version</td>
+            <td>Buggy Project Source</td>
+        </tr>
+        <tr>
+            <td><a href="http://"><font color="blue"><i>&lt;test name with hyperlink, e.g. Test10></i></font></a></td>
+            <td><font color="blue"><i>&lt;bug ID, e.g. 10></i></font></td>
+            <td><font color="blue"><i>&lt;bug type,e.g. "race"></i></font></td>
+
+            <td><font color="blue"><i>&lt;bug link starting with http://></i></font></td>
+            <td><font color="blue"><i>&lt;project version></i></font></td>
+            <td><font color="blue"><i>&lt;bug project source starting with http://></i></font></td>
+        </tr>
+
+    </tbody>
+</table>
+<br>
+    =================Template Ends=================
+
+        </div>
+		<div id="Jacontebe API"><h4><b>4.3 Jacontebe API</b></h4>
+		<a href="javadoc\Helpers.html">edu.illinois.jacontebe.Helpers</a><br>
+		<a href="javadoc\OptionHelper.html">edu.illinois.jacontebe.OptionHelper</a><br>
+		<a href="javadoc\Reporter.html">edu.illinois.jacontebe.framework.Reporter</a>
+		</div>
+        </div>
+        <div id="footer" align="center">
+            <br>
+            <footer>&copy;2014 JaconTebe</footer>
+        </div>
+    </body>

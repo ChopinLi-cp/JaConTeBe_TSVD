@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jdk bug 4742723</title>
+</head>
+<body>
+	
+
+		<h1><b>Bug 4742723</b></h1>
+		<h2><b>Bug Description:</b></h2>
+<p>
+	This is a race bug.
+    <br>This bug only affects Windows OS. Linux is not affected.<br>
+    
+Expected message from test is:<br> 
+===========Test failed======================<br>
+Two directories are expected to be created, but only one is created.<br>
+Missing a directory<br>
+============================================
+<br>More details about this bug are at
+<a href="https://bugs.openjdk.java.net/browse/JDK-4742723">JDK-4742723</a> JIRA page.
+</p>
+<h2><b>Interleaving Description:</b></h2>
+<p>The numbers in the following code snippets present the global execution sequence.
+	<pre><b>java.io.File:</b>
+	
+t1      t2      public boolean mkdirs() {
+1,7     4,10        if (exists()) {
+        11              return false;
+                    }
+8                   if (mkdir()) {
+9                       return true;
+                    }
+                    File canonFile = null;
+                    try {
+                        canonFile = getCanonicalFile();
+                    } catch (IOException e) {
+                        return false;
+                    }
+2       5           String parent = canonFile.getParent();
+3       6           return (parent != null) && 
+                        (new File(parent, fs.prefixLength(parent)).mkdirs() &&
+                                canonFile.mkdir());
+                }
+</pre>
+<p>	
+Precondition:<br> 
+t1 calls new File(projectBase+"\base\a").mkdirs();<br>
+t2 calls new File(projectBase+"\base\b").mkdirs();
+</p>
+<p>
+    a) t1 checks if projectBase\base\a exists at 1, here is false.
+<br>b) t1 gets parent path at 2, now parent is projectBase\base.
+<br>c) t1 tries to create parent directory first at 3<br>
+d) context switched. t2 checks projectBase\base\b at 4, here is false;<br>
+e) t1 gets parent path at 5, now parent is projectBase\base.
+<br>f) t1 tries to create parent directory first at 6
+<br>g) context switched, t1 checks if the parent directory projectBase\base exists at 7. Here is false.
+<br>h) t1 creates projectBase\base directory at 8.
+<br>i) t1 successfully created parent directory projectBase\base and return true at 9 to continue.
+<br>j) context switched, t2 checks if parent projectBase\base exists at 10.
+<br>k) parent directory has been created by t1 at step h), so t2 return false at 11.
+</p>
+Now t1 continues to create projectBase\base\a, but t2 aborts creating, so only directory projectBase\base\a is created.
+</p>
+
+	
+	<h2>
+		<b>How To Reproduce:</b>
+	</h2>
+
+	<p>
+		This bug is reproduced under JDK 1.6.0.
+        <br>It affects since JDK 1.6.0, and has been fixed since JDK 1.6.0_02.
+        <br>Execute the following scripts to run the test to reproduce the bug (assume the location of the jdk6 test project is jdk_test_home).
+	</p>
+	<p>
+		<b>Linux:</b><br> <i>${jdk_test_home}/scripts/4742723.sh [--javaloc path]</i><br> <b>Windows:</b><br> <i>%jdk_test_home%\scripts\4742723.bat [--javaloc path]</i>
+	</p>
+	<table border="1">
+		<tbody>
+			<tr>
+				<td>Option</td>
+				<td>Function</td>
+				<td>Default Value</td>
+                <td>Valid Values</td>
+
+			</tr>
+
+
+
+			<tr>
+				<td>--javaloc</td>
+				<td>The location of JDK that is eligible to reproduce the bug,
+					if your java environment is not eligible. <br>In this case,
+					it's JDK 1.6.0. It should be the absolute path to the JDK's java
+					starter and ended with "/".<br> For example:
+					~/jdk/home/jdk1.6.0/bin/
+				</td>
+				<td>N/A</td>
+                <td>string</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

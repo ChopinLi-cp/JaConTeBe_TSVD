@@ -1,0 +1,7 @@
+#--- dependencies on other JPF modules
+
+
+#--- what JPF should run
+target = org.apache.commons.dbcp.Dbcp271
+classpath = bin:../lib/coring-1.4.jar:../lib/jacontebe-1.0.jar:lib/commons-dbcp-1.2.jar
+#--- other stuff that defines how to run JPF

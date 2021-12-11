@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html><head>
+
+
+<meta charset="UTF-8"><title>Lucene</title></head><body>
+<h2>Bug Summary</h2>
+
+	
+<table style="border-style: solid;" border="1">
+
+		<tbody><tr>
+			<td>Test</td>
+			<td>Bug ID</td>
+			<td>Bug Type</td>
+			<td>Bug Link</td>
+
+			<td>Buggy Project Version</td>
+			<td>Buggy Project Source</td>
+		</tr>
+		<tr>
+			<td><a href="1544.html">Test1544</a></td>
+			<td>1544</td>
+			<td>wait-notify deadlock</td>
+
+			<td>https://issues.apache.org/jira/browse/LUCENE-1544</td>
+
+
+			<td>2.4.0</td>
+			<td>http://archive.apache.org/dist/lucene/java/lucene-2.4.0-src.zip
+				</td>
+		</tr>
+		<tr>
+
+			<td><a href="2783.html">Test2783</a></td>
+			<td>2783</td>
+			<td>wait-notify deadlock</td>
+			<td>https://issues.apache.org/jira/browse/LUCENE-2783</td>
+			<td>2.9.3</td>
+			<td>http://archive.apache.org/dist/lucene/java/lucene-2.9.3-src.zip</td>
+
+		</tr>
+
+
+
+
+	</tbody>
+</table>
+</body></html>

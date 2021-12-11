@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html><head>
+
+
+
+
+
+
+<meta charset="UTF-8"><title>groovy bug 3495</title></head><body>
+	
+
+		<h1><b>Bug 3495</b></h1>
+		
+	<h2><b>Bug Description:</b></h2>
+	
+	<p>
+		
+		This is a race.<br>
+		<b>Java.lang.ClassLoader</b> is not thread safe when two or more threads try to load the same class simultaneously. It throws a  LinkageError exception. <br>An exception
+		thrown by this bug:
+
+	<pre>  Exception in thread "Thread-0" java.lang.LinkageError: loader (instance of org/codehaus/groovy/tools/RootLoader):<br>  attempted duplicate class definition for name: "groovy/beans/Bindable"<br>    at java.lang.ClassLoader.defineClass1(Native Method)<br>    at java.lang.ClassLoader.defineClassCond(ClassLoader.java:631)<br>    at java.lang.ClassLoader.defineClass(ClassLoader.java:615)<br>    at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:141)<br>    at java.net.URLClassLoader.defineClass(URLClassLoader.java:283)<br>    at java.net.URLClassLoader.access$000(URLClassLoader.java:58)<br>    at java.net.URLClassLoader$1.run(URLClassLoader.java:197)<br>    at java.security.AccessController.doPrivileged(Native Method)<br>    at java.net.URLClassLoader.findClass(URLClassLoader.java:190)<br>    at org.codehaus.groovy.tools.RootLoader.oldFindClass(RootLoader.java:152)<br>    at org.codehaus.groovy.tools.RootLoader.loadClass(RootLoader.java:124)<br>    at java.lang.ClassLoader.loadClass(ClassLoader.java:247)<br>    at org.codehaus.groovy.tools.Groovy3495$1.run(Groovy3495.java:34)<br>	</pre>
+	More details about this bug are at <a href="http://jira.codehaus.org/browse/GROOVY-3495">GROOVY-3495</a>
+		JIRA page.
+	</p>
+    <h2>
+		<b>Interleaving Description: </b>
+	</h2>
+    <p>
+        The numbers in the following code snippet present the global execution sequence.
+        <pre>
+<b>org.codehaus.groovy.tools.Rootloader</b>
+
+t1    t2    protected Class loadClass(final String name, boolean resolve) throws ClassNotFoundException {
+1     3         Class c = this.findLoadedClass(name);
+                if (c != null) return c;
+                c = (Class) customClasses.get(name);
+2               if (c != null) return c;
+            
+                try {
+5     4             c = oldFindClass(name);
+                } catch (ClassNotFoundException cnfe) {
+                    // IGNORE
+                }
+                ...
+            }
+        </pre>
+    Precondition: thread1 and thread2 both try to load the class <i>"groovy/beans/Bindable"</i>
+    <br>
+    <br>
+    a) thread1 executes 1 to check whether the given class was loaded before.
+    <br>
+    b) the given class was not loaded and thread1 goes 2. Now <i>c</i> is null.
+    <br>
+    c) after thread1 executes 2, context switches and thread2 executes 3. The method <i>findLoadedClass</i> returns null, since the given class has not been loaded in thread1.
+    <br>
+    d) then thread2 execute 4 to load the class.
+    <br>
+    e) after thread2 executes 4, context switches, thread1 continues 5 to try to load the class which has been loaded in thread2, and a <b>LinkageError</b> exception is thrown in thread1.
+    </p>
+	<h2>
+		<b>How To Reproduce: </b>
+	</h2>
+<p>
+		This bug is reproduced under groovy 1.7.9 and JDK 1.6.0_33. 
+	<br>Execute
+the following scripts to run the test to reproduce the bug (assume the
+location of the groovy test project is groovy_test_home). </p>
+
+<p>
+<b>Linux:</b>
+	<br>
+	<i>${groovy_test_home}/scripts/3495.sh [--threadnum arg]</i>
+	<br>
+	<b>Windows:</b>
+	<br>
+	<i>%groovy_test_home%\scripts\3495.bat [--threadnum arg]</i>
+	<br>
+	</p>
+	<p>
+		The default number of threads is 3 if not specified. For example,<br>
+		<i>${groovy_test_home}/scripts/3495.sh</i> <br> is the same as<br>
+		<i>${groovy_test_home}/scripts/3495.sh --threadnum 3</i><br>
+	</p><table border="1">
+		<tbody>
+			<tr>
+				<td>Option</td>
+				<td>Function</td>
+				<td>Default Value</td>
+				<td>Valid Values</td>
+			</tr>
+
+
+			<tr>
+				<td>--threadnum,-tn</td>
+				<td>set the number of threads, when the test checks whether a race could happen. Default value is 3 if
+this option is not set explicitly.</td>
+				<td>3</td>
+				<td>integer</td>
+			</tr>
+		</tbody>
+	</table>
+	
+<b> </b>
+</body></html>

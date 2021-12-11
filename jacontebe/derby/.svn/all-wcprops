@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/conbenchmark/!svn/ver/1390/trunk/benchmarks/derby
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/conbenchmark/!svn/ver/1366/trunk/benchmarks/derby/.classpath
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/conbenchmark/!svn/ver/271/trunk/benchmarks/derby/.project
+END

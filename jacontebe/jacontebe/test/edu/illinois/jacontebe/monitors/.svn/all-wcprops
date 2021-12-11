@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/conbenchmark/!svn/ver/1180/trunk/benchmarks/jacontebe/test/edu/illinois/jacontebe/monitors
+END
+EndlessLoopMonitorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/conbenchmark/!svn/ver/1180/trunk/benchmarks/jacontebe/test/edu/illinois/jacontebe/monitors/EndlessLoopMonitorTest.java
+END
+WaitingMonitorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/conbenchmark/!svn/ver/1180/trunk/benchmarks/jacontebe/test/edu/illinois/jacontebe/monitors/WaitingMonitorTest.java
+END
+DeadlockMonitorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/conbenchmark/!svn/ver/1180/trunk/benchmarks/jacontebe/test/edu/illinois/jacontebe/monitors/DeadlockMonitorTest.java
+END

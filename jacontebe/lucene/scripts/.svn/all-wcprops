@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/conbenchmark/!svn/ver/1349/trunk/benchmarks/lucene/scripts
+END
+all.sh
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/conbenchmark/!svn/ver/990/trunk/benchmarks/lucene/scripts/all.sh
+END
+1544.bat
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/conbenchmark/!svn/ver/1261/trunk/benchmarks/lucene/scripts/1544.bat
+END
+jacontebe.sh
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/conbenchmark/!svn/ver/990/trunk/benchmarks/lucene/scripts/jacontebe.sh
+END
+prepare.bat
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/conbenchmark/!svn/ver/1261/trunk/benchmarks/lucene/scripts/prepare.bat
+END
+1544.sh
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/conbenchmark/!svn/ver/990/trunk/benchmarks/lucene/scripts/1544.sh
+END
+jpf_test.sh
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/conbenchmark/!svn/ver/1348/trunk/benchmarks/lucene/scripts/jpf_test.sh
+END
+2783.bat
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/conbenchmark/!svn/ver/1261/trunk/benchmarks/lucene/scripts/2783.bat
+END
+2783.sh
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/conbenchmark/!svn/ver/990/trunk/benchmarks/lucene/scripts/2783.sh
+END

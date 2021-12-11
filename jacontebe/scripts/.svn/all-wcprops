@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/conbenchmark/!svn/ver/1343/trunk/benchmarks/scripts
+END
+jacontebe.bat
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/conbenchmark/!svn/ver/1243/trunk/benchmarks/scripts/jacontebe.bat
+END
+all.sh
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/conbenchmark/!svn/ver/991/trunk/benchmarks/scripts/all.sh
+END
+jacontebe.sh
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/conbenchmark/!svn/ver/1119/trunk/benchmarks/scripts/jacontebe.sh
+END
+jpf_test.sh
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/conbenchmark/!svn/ver/1343/trunk/benchmarks/scripts/jpf_test.sh
+END

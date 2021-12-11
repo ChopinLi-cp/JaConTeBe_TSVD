@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/conbenchmark/!svn/ver/1366/trunk/benchmarks/derby/lib
+END
+derbyclient.jar
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/conbenchmark/!svn/ver/271/trunk/benchmarks/derby/lib/derbyclient.jar
+END
+javaee-api-7.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/conbenchmark/!svn/ver/271/trunk/benchmarks/derby/lib/javaee-api-7.0.jar
+END
+derby.jar
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/conbenchmark/!svn/ver/271/trunk/benchmarks/derby/lib/derby.jar
+END
+junit4.11.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/conbenchmark/!svn/ver/271/trunk/benchmarks/derby/lib/junit4.11.jar
+END
+javassist-3.18.1-GA.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/conbenchmark/!svn/ver/271/trunk/benchmarks/derby/lib/javassist-3.18.1-GA.jar
+END
+db-derby-10.5.1.1-src.zip
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/conbenchmark/!svn/ver/486/trunk/benchmarks/derby/lib/db-derby-10.5.1.1-src.zip
+END

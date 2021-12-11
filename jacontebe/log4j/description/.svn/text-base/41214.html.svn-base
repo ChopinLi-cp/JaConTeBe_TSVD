@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html><head>
+
+
+
+
+<meta charset="UTF-8"><title>log4j bug 41214</title></head><body>
+	
+
+		<h1><b>Bug 41214</b></h1>
+		
+	<h2><b>Bug Description:</b></h2>
+	<p>
+	This is a deadlock.<br>
+The following is an example of deadlock
+		threads:
+
+	<pre>"RootLoggerThread": waiting to lock monitor 0x000000000215f648 (object 0x00000007d5eb6de0, <br>    a org.apache.log4j.ConsoleAppender), which is held by "AnObjectThread"<br>"AnObjectThread": waiting to lock monitor 0x000000000215ce40 (object 0x00000007d5e47040, <br>    a org.apache.log4j.spi.RootLogger), which is held by "RootLoggerThread"<br><br>Java stack information for the threads listed above:<br>===================================================<br>"RootLoggerThread":<br>    at org.apache.log4j.AppenderSkeleton.doAppend(AppenderSkeleton.java:210)<br>    - waiting to lock <font color="red">&lt;0x00000007d5eb6de0&gt; (a org.apache.log4j.ConsoleAppender)</font>
+    at org.apache.log4j.helpers.AppenderAttachableImpl.appendLoopOnAppenders(AppenderAttachableImpl.java:65)
+    at org.apache.log4j.Category.callAppenders(Category.java:203)
+    - locked <font color="blue">&lt;0x00000007d5e47040&gt; (a org.apache.log4j.spi.RootLogger)</font>
+    at org.apache.log4j.Category.forcedLog(Category.java:388)
+    at org.apache.log4j.Category.info(Category.java:663)
+    at com.main.RootLoggerThread.run(RootLoggerThread.java:18)
+"AnObjectThread":
+    at org.apache.log4j.Category.callAppenders(Category.java:202)
+    - waiting to lock <font color="blue">&lt;0x00000007d5e47040&gt; (a org.apache.log4j.spi.RootLogger)</font>
+    at org.apache.log4j.Category.forcedLog(Category.java:388)
+    at org.apache.log4j.Category.info(Category.java:663)
+    at com.a.AnObject.toString(AnObject.java:24)
+    at org.apache.log4j.or.DefaultRenderer.doRender(DefaultRenderer.java:35)
+    at org.apache.log4j.or.RendererMap.findAndRender(RendererMap.java:79)
+    at org.apache.log4j.spi.LoggingEvent.getRenderedMessage(LoggingEvent.java:297)
+    at org.apache.log4j.helpers.PatternParser$BasicPatternConverter.convert(PatternParser.java:403)
+    at org.apache.log4j.helpers.PatternConverter.format(PatternConverter.java:64)
+    at org.apache.log4j.PatternLayout.format(PatternLayout.java:503)
+    at org.apache.log4j.WriterAppender.subAppend(WriterAppender.java:301)
+    at org.apache.log4j.WriterAppender.append(WriterAppender.java:159)
+    at org.apache.log4j.AppenderSkeleton.doAppend(AppenderSkeleton.java:230)
+    - locked <font color="red">&lt;0x00000007d5eb6de0&gt; (a org.apache.log4j.ConsoleAppender)</font>
+    at org.apache.log4j.helpers.AppenderAttachableImpl.appendLoopOnAppenders(AppenderAttachableImpl.java:65)
+    at org.apache.log4j.Category.callAppenders(Category.java:203)
+    - locked &lt;0x00000007d5f3ccb0&gt; (a org.apache.log4j.Logger)
+    at org.apache.log4j.Category.forcedLog(Category.java:388)
+    at org.apache.log4j.Category.info(Category.java:663)
+    at com.c.AnObjectThread.run(AnObjectThread.java:20)	
+</pre> More details about this bug are at <a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=41214">LOG4J-41214</a>
+		JIRA page.</p>
+	
+	<h2>
+		<b>How To Reproduce: </b>
+	</h2>
+<p>
+		This bug is reproduced under log4j 1.2.13 and JDK 1.6.0_33.<br>Execute
+the following scripts to run the test to reproduce the bug (assume the
+location of the log4j test project is log4j_test_home).</p>
+<p>
+		<b>Linux:</b><br>
+		<i>${log4j_test_home}/scripts/41214.sh [--monitoroff]</i><br>
+		<b>Windows:</b><br>
+		<i>%log4j_test_home%\scripts\41214.bat [--monitoroff]</i><br>
+	</p><p><b>Example:</b>
+		Use monitor to report and terminate the program when deadlock happens:<i><br>${log4j_test_home}/scripts/41214.sh</i>
+		<br><br>
+		Turn off monitor:<br> <i> ${log4j_test_home}/scripts/41214.sh
+			--monitoroff</i>
+	</p>
+	<table border="1">
+		<tbody>
+			<tr>
+				<td>Option</td>
+				<td>Function</td>
+			</tr>
+
+			<tr>
+				<td>--monitoroff, -mo</td>
+				<td>Turn off to stop reporting bug messages and ending program
+					when test <br>runs into the expected concurrency bug which is
+					a deadlock.<br> User has to terminate the program manually
+					when this option is set.
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+</body></html>

@@ -1,0 +1,8 @@
+#--- dependencies on other JPF modules
+
+
+#--- what JPF should run
+target = org.apache.derby.impl.store.raw.data.Derby5447
+classpath = bin:../lib/asm-all-5.0.3.jar:../lib/coring-1.4.jar:../lib/jacontebe-1.0.jar:lib/derby.jar
+target_args=-mo
+#--- other stuff that defines how to run JPF

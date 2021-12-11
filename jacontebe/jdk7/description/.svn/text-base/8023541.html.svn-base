@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jdk7 bug 8023541</title>
+</head>
+<body>
+
+
+	<h1>
+		<b>Bug 8023541</b>
+	</h1>
+	<h2>
+		<b>Bug Description:</b>
+	</h2>
+    <p>
+	This is a race bug.
+	<br>The buggy binary code has been instrumented in this test to increase the chance to trigger the bug.
+	<br>The expected exception is a <b>NullpointerException</b>.
+    <br>
+    More details about this bug are at
+	<a href="https://bugs.openjdk.java.net/browse/JDK-8023541">JDK-8023541</a> JIRA page.
+    </p>
+    <h2>
+		<b>Interleaving Description:</b>
+	</h2>
+    <pre><b>sun.rmi.server.Activation$SystemRegistryImpl</b>
+
+t1  t2    SystemRegistryImpl(int port,
+                                   RMIClientSocketFactory csf,
+                                   RMIServerSocketFactory ssf,
+                                   ActivationSystem systemStub)
+                    throws RemoteException
+                {
+1                   super(port, csf, ssf);
+3                   this.systemStub = systemStub;
+                }
+        
+                
+                public Remote lookup(String name)
+                    throws RemoteException, NotBoundException
+                {
+                    if (name.equals(NAME)) {
+    2                   return systemStub;
+                    } else {
+                        return super.lookup(name);
+                    }
+                }
+
+</pre>
+	
+	<p>
+		a) thread 1 initiates a SystemRegistryImpl instance at 1.
+<br>b) context switched, thread 2 returns systemStub at 2. But systemStub is still not initiated yet, so it returns a null value which is not
+   expected.
+<br>c) context switched, thread 1 initiates systemStub at 3.
+	</p>
+
+
+	<h2>
+		<b>How To Reprocuce:</b>
+	</h2>
+    <p>
+There are two stages to reproduce this bug:
+<ul>
+<li>Stage 1: Modify the byte code of buggy class. The buggy window at original source code is very narrow, so we modify the byte code of buggy class to insert a short sleep between 1 and 3 in the code above  to extend the buggy window to make the bug easier to reproduce.<br>
+Run asm.ActivationModifier class first to generate a modified class file at this projet's "classes" directory.</li>
+<li>Stage 2: Run Test8023541 class with -Xbootclasspath/p:classes option to load modified class to replace the one from jdk.</li> 
+ </ul>
+</p>
+        <p>
+		This bug is reproduced under JDK 1.7.0.
+        <br>It started at JDK 1.7.0, and hae been fixed since JDK 1.9.0.
+        <br>Execute the following scripts to run the test to reproduce the bug (assume the location of the jdk7 test project is jdk7_test_home).
+	    </p>
+	    <p>
+		<b>Linux:</b><br> <i>${jdk7_test_home}/scripts/8023541.sh [--javaloc path]</i>
+		<br> <b>Windows:</b><br><i>%jdk7_test_home%\scripts\8023541.bat [--javaloc path]</i>
+	    </p>
+	<table border="1">
+		<tbody>
+			<tr>
+				<td>Option</td>
+				<td>Function</td>
+				<td>Default Value</td>
+                <td>Valid Values</td>
+
+			</tr>
+
+
+			<tr>
+				<td>--javaloc</td>
+				<td>The location of JDK that is eligible to reproduce the bug,
+					if your java environment is not eligible. <br>In this case,
+					it's JDK 1.7.0. It should be the absolute path to the JDK's java starter
+					and ended with "/".<br> For example: ~/jdk/home/jdk1.7.0/bin/
+				</td>
+				<td>N/A</td>
+                <td>string</td>
+
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

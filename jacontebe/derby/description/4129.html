@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html><head>
+
+
+
+
+<meta charset="UTF-8"><title>derby bug 4129</title></head><body>
+<h1><b>Bug 4129</b></h1>
+ 
+		
+<h2><b>Bug Description:</b></h2>
+<p>
+		This is a deadlock.<br>The following is an example of deadlock
+		thread dump:
+<pre>"Thread-3": waiting to lock monitor 0x000000000bacbeb8 (object 0x00000000ed5373b8,<br>    a org.apache.derby.impl.store.raw.data.StoredPage),	which is held by "Thread-2"<br>"Thread-2": waiting to lock monitor 0x000000000be38318 (object 0x00000000eb3c5d90, <br>    a rg.apache.derby.impl.store.raw.data.BaseContainerHandle), which is held by "Thread-3"<br><br>Java stack information for the threads listed above:<br>===================================================<br>"Thread-3":<br>    at org.apache.derby.impl.store.raw.data.BasePage.isLatched(BasePage.java:1313)<br>     - waiting to lock <font color="red">&lt;0x00000000ed5373b8&gt; (a org.apache.derby.impl.store.raw.data.StoredPage)</font><br><br>    at org.apache.derby.impl.store.raw.data.BasePage.update(BasePage.java:1545)<br>    at java.util.Observable.notifyObservers(Observable.java:159)<br>    at java.util.Observable.notifyObservers(Observable.java:115)<br>    at org.apache.derby.impl.store.raw.data.BaseContainerHandle.informObservers(BaseContainerHandle.java:1008)<br>    at org.apache.derby.impl.store.raw.data.BaseContainerHandle.close(BaseContainerHandle.java:414)<br>     - locked <font color="blue">&lt;0x00000000eb3c5d90&gt; (a org.apache.derby.impl.store.raw.data.BaseContainerHandle)</font><br>    at org.apache.derby.impl.store.access.conglomerate.OpenConglomerate.close(OpenConglomerate.java:917)<br>    at org.apache.derby.impl.store.access.conglomerate.GenericController.close(GenericController.java:139)<br>    at org.apache.derby.impl.store.access.conglomerate.GenericScanController.closeForEndTransaction(GenericScanController.java:1073)<br>    at org.apache.derby.impl.store.access.RAMTransaction.closeControllers(RAMTransaction.java:245)<br>    at org.apache.derby.impl.store.access.RAMTransaction.commit(RAMTransaction.java:1959)<br>    at org.apache.derby.impl.sql.conn.GenericLanguageConnectionContext.doCommit(GenericLanguageConnectionContext.java:1241)<br>    at org.apache.derby.impl.sql.conn.GenericLanguageConnectionContext.userCommit(GenericLanguageConnectionContext.java:1061)<br>    at org.apache.derby.impl.jdbc.TransactionResourceImpl.commit(TransactionResourceImpl.java:237)<br>    at org.apache.derby.impl.jdbc.EmbedConnection.commitIfNeeded(EmbedConnection.java:2325)<br>    at org.apache.derby.impl.jdbc.ConnectionChild.commitIfNeeded(ConnectionChild.java:100)<br>    at org.apache.derby.impl.jdbc.EmbedStatement.executeStatement(EmbedStatement.java:1192)<br>     - locked &lt;0x00000000ed508270&gt; (a org.apache.derby.impl.jdbc.EmbedConnection40)<br>    at org.apache.derby.impl.jdbc.EmbedPreparedStatement.executeStatement(EmbedPreparedStatement.java:1648)<br>    at org.apache.derby.impl.jdbc.EmbedPreparedStatement.executeQuery(EmbedPreparedStatement.java:270)<br>    at Derby4129$1.run(Derby4129.java:60)<br>    at java.lang.Thread.run(Thread.java:724)<br><br>"Thread-2":<br>    at java.util.Observable.deleteObserver(Observable.java:95)<br>     - waiting to lock <font color="blue">&lt;0x00000000eb3c5d90&gt; (a org.apache.derby.impl.store.raw.data.BaseContainerHandle)</font><br>    at org.apache.derby.impl.store.raw.data.BasePage.releaseExclusive(BasePage.java:1740)<br>     - locked <font color="red">&lt;0x00000000ed5373b8&gt; (a org.apache.derby.impl.store.raw.data.StoredPage)</font><br><br>    at org.apache.derby.impl.store.raw.data.CachedPage.releaseExclusive(CachedPage.java:528)<br>    at org.apache.derby.impl.store.raw.data.StoredPage.releaseExclusive(StoredPage.java:1093)<br>    at org.apache.derby.impl.store.raw.data.BasePage.unlatch(BasePage.java:1301)<br>    at org.apache.derby.impl.store.raw.data.OverflowInputStream.fillByteHolder(OverflowInputStream.java:152)<br>    at org.apache.derby.impl.store.raw.data.BufferedByteHolderInputStream.read(BufferedByteHolderInputStream.java:44)<br>    at java.io.DataInputStream.readFully(DataInputStream.java:195)<br>    at java.io.DataInputStream.readFully(DataInputStream.java:169)<br>    at org.apache.derby.iapi.types.SQLBinary.readExternal(SQLBinary.java:422)<br>    at org.apache.derby.iapi.types.SQLBinary.getValue(SQLBinary.java:241)<br>    at org.apache.derby.iapi.types.SQLBinary.getBytes(SQLBinary.java:223)<br>    at org.apache.derby.impl.jdbc.EmbedResultSet.getBytes(EmbedResultSet.java:863)<br>    at Derby4129$1.run(Derby4129.java:63)<br>    at java.lang.Thread.run(Thread.java:724)<br></pre>
+
+		More details about this bug are at <a href="https://issues.apache.org/jira/browse/DERBY-4129">DERBY-4129</a>
+		JIRA page.
+	</p>
+
+	
+	
+<h2>
+		<b>How To Reproduce: </b>
+	</h2>
+
+
+	
+	
+<p>
+		This bug is reproduced under derby 10.5.1.1 and JDK 1.6.0_33. <br>Execute
+the following scripts to run the test to reproduce the bug (assume the
+location of the derby test project is derby_test_home). </p>
+
+	<b>Linux:</b>
+	<br>
+
+	<i>${derby_test_home}/scripts/4129.sh [--monitoroff]</i>
+	<br>
+
+
+	<b>Windows:</b>
+	<br>
+
+	<i>%derby_test_home%\scripts\4129.bat [--monitoroff]</i>
+	<br>
+
+	
+<p><b>Example:</b>>
+	<br>
+		Use monitor to report and terminate the program when deadlock happens:<i><br>${derby_test_home}/scripts/4129.sh</i>
+
+	<br><br>
+
+		Turn off monitor:<br> <i> ${derby_test_home}/scripts/4129.sh
+			--monitoroff</i>
+	</p>
+
+	
+<table border="1">
+
+		<tbody>
+			<tr>
+
+				<td>Option</td>
+				<td>Function</td>
+
+
+			</tr>
+
+
+			<tr>
+				<td>--monitoroff, -mo</td>
+
+				<td>Turn off to stop reporting bug messages and ending program
+					when test <br>runs into the expected concurrency bug which is
+					a deadlock.<br> User has to terminate the program manually
+					when this option is set.
+				</td>
+
+
+			</tr>
+		</tbody>
+	
+</table>
+</body></html>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/conbenchmark/!svn/ver/1183/trunk/benchmarks/jdk6/src/asm
+END
+SleepMVFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/conbenchmark/!svn/ver/1183/trunk/benchmarks/jdk6/src/asm/SleepMVFactory.java
+END
+AddSleep2LoggerAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/conbenchmark/!svn/ver/1034/trunk/benchmarks/jdk6/src/asm/AddSleep2LoggerAdapter.java
+END
+LoggerModifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/conbenchmark/!svn/ver/1183/trunk/benchmarks/jdk6/src/asm/LoggerModifier.java
+END

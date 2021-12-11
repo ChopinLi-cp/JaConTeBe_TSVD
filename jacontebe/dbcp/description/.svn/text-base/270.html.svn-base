@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html><head>
+
+
+<meta charset="UTF-8"><title>dbcp bug 270</title></head><body>
+
+
+    <h1>
+        <b>Bug 270</b>
+    </h1>
+    <h2>
+        <b>Bug Description:</b>
+    </h2>
+    <p>
+        This is a deadlock.<br>The following is an example of deadlock
+        thread dump:
+	<pre>"Thread2": waiting to lock monitor 0x00000000076cf768 (object 0x00000000eb99b778, <br>    a org.apache.commons.dbcp.PoolableConnection), which is held by "Thread1" <br>"Thread1": waiting to lock monitor 0x000000000627a360 (object 0x00000000eb913d50, a<br>    org.apache.commons.pool.impl.GenericObjectPool), which is held by "Thread2"<br><br>Java stack information for the threads listed above:<br>===================================================<br>Thread1:<br>    at org.apache.commons.pool.impl.GenericObjectPool.addObjectToPool(GenericObjectPool.java:872) <br>      - waiting to lock <font color="red">&lt;0x00000000eb911858&gt; (a org.apache.commons.pool.impl.GenericObjectPool)</font>
+    at org.apache.commons.pool.impl.GenericObjectPool.returnObject(GenericObjectPool.java:854) 
+    at org.apache.commons.dbcp.PoolableConnection.close(PoolableConnection.java:80) 
+      - locked <font color="blue">&lt;0x00000000eb9b7898&gt; (a org.apache.commons.dbcp.PoolableConnection)</font>
+    at Dbcp270$Thread1.run(Dbcp270.java:47)
+
+Thread2:
+    at org.apache.commons.dbcp.AbandonedTrace.addTrace(AbandonedTrace.java:173) 
+      - waiting to lock <font color="blue">&lt;0x00000000eb9b7898&gt; (a org.apache.commons.dbcp.PoolableConnection)</font>
+    at org.apache.commons.dbcp.AbandonedTrace.init(AbandonedTrace.java:89)
+    at org.apache.commons.dbcp.AbandonedTrace.(AbandonedTrace.java:79)
+    at org.apache.commons.dbcp.DelegatingStatement.(DelegatingStatement.java:60)
+    at org.apache.commons.dbcp.DelegatingConnection.createStatement(DelegatingConnection.java:161)
+    at org.apache.commons.dbcp.PoolableConnectionFactory.validateConnection(PoolableConnectionFactory.java:327)
+    at org.apache.commons.dbcp.PoolableConnectionFactory.validateObject (PoolableConnectionFactory.java:308) 
+    at org.apache.commons.pool.impl.GenericObjectPool.evict 
+      -locked <font color="red">&lt;0x00000000eb911858&gt; (a org.apache.commons.pool.impl.GenericObjectPool)</font>
+    at Dbcp270$Thread2.run(Dbcp270.java:67)
+</pre>
+        More details about this bug are at <a href="https://issues.apache.org/jira/browse/DBCP-270">DBCP-270</a> JIRA page.
+    </p>
+    <h2>
+        <b>How To Reproduce:</b>
+    </h2>
+
+    <p>
+        This bug is reproduced under dbcp 1.2 and JDK 1.6.0_33.<br>Execute
+the following scripts to run the test to reproduce the bug (assume the
+location of the dbcp test project is dbcp_test_home). </p>
+    <b>Linux:</b>
+    <br>
+    <i>${dbcp_test_home}/scripts/270.sh [--monitoroff]</i>
+    <br>
+    <b>Windows:</b>
+    <br>
+    <i>%dbcp_test_home%\scripts\270.bat [--monitoroff]</i>
+    <br>
+    <p><b>Example:</b>
+        Use monitor to report and terminate the program when deadlock happens:<i><br>${dbcp_test_home}/scripts/270.sh</i>
+        <br><br>
+        Turn off monitor:<br> <i> ${dbcp_test_home}/scripts/270.sh
+            --monitoroff</i>
+    </p>
+    <table border="1">
+        <tbody>
+            <tr>
+                <td>Option</td>
+                <td>Function</td>
+
+
+            </tr>
+
+
+            <tr>
+                <td>--monitoroff, -mo</td>
+                <td>Turn off to stop reporting bug messages and ending program
+                    when test <br>runs into the expected concurrency bug which is
+                    a deadlock.<br> User has to terminate the program manually
+                    when this option is set.
+                </td>
+
+
+            </tr>
+        </tbody>
+    </table>
+</body></html>

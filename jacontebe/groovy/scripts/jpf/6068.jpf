@@ -1,0 +1,7 @@
+#--- dependencies on other JPF modules
+
+
+#--- what JPF should run
+target = groovy.util.Groovy6068
+classpath = bin:../lib/coring-1.4.jar:../lib/jacontebe-1.0.jar:lib/ant-launcher.jar:lib/ant.jar:lib/groovy-all-1.7.9.jar
+#--- other stuff that defines how to run JPF

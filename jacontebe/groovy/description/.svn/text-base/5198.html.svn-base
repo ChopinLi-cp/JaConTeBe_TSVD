@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html><head>
+
+
+
+
+
+
+<meta charset="UTF-8"><title>groovy bug 5198</title></head><body>
+    
+
+        <h1><b>Bug 5198</b></h1>
+        
+    <h2><b>Bug Description:</b></h2>
+     <p>
+        This is a race.<br>Fields params and method in class
+    <b>org.codehaus.groovy.runtime.metaclass.MetaMethodIndex$CacheEntry</b>
+    are published unsafely. No memory barrier is set when this class is called to prevent Java execution reordering which causes unpredictable results.
+    <br>An exception will be thrown when run the given groovy test:
+</p>
+    <pre>
+groovy.lang.MissingMethodException: No signature of method: static Foo.valueOf() is applicable for argument types: (java.lang.String) values: [bar]
+Possible solutions: valueOf(java.lang.String), valueOf(java.lang.Class, java.lang.String), values()
+    at groovy.lang.MetaClassImpl.invokeStaticMissingMethod(MetaClassImpl.java:1357)
+    at groovy.lang.MetaClassImpl.invokeStaticMethod(MetaClassImpl.java:1343)
+    at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:767)
+    at org.codehaus.groovy.runtime.DefaultGroovyMethods.asType(DefaultGroovyMethods.java:14464)
+    at org.codehaus.groovy.runtime.dgm$57.doMethodInvoke(Unknown Source)
+    at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1058)
+    at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:886)
+    at org.codehaus.groovy.runtime.InvokerHelper.invokePojoMethod(InvokerHelper.java:781)
+    at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:772)
+    at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.invokeMethodN(ScriptBytecodeAdapter.java:163)
+    at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.asType(ScriptBytecodeAdapter.java:590)
+    at Script1$_run_closure1_closure4_closure5.doCall(Script1.groovy:4)
+    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke(Method.java:606)
+    at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+    at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+    at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:273)
+    at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:886)
+    at groovy.lang.Closure.call(Closure.java:282)
+    at groovy.lang.Closure.call(Closure.java:295)
+    at org.codehaus.groovy.runtime.DefaultGroovyMethods.times(DefaultGroovyMethods.java:9723)
+    at org.codehaus.groovy.runtime.dgm$636.invoke(Unknown Source)
+    at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite$PojoMetaMethodSiteNoUnwrapNoCoerce.invoke(PojoMetaMethodSite.java:270)
+    at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite.call(PojoMetaMethodSite.java:52)
+    at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:40)
+    at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+    at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:124)
+    at Script1$_run_closure1_closure4.doCall(Script1.groovy:3)
+    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke(Method.java:606)
+    at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+    at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+    at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:273)
+    at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:886)
+    at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+    at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:44)
+    at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:141)
+    at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:149)
+    at Script1$_run_closure1_closure4.doCall(Script1.groovy)
+    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke(Method.java:606)
+    at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+    at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+    at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:273)
+    at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:886)
+    at groovy.lang.Closure.call(Closure.java:282)
+    at groovy.lang.Closure.call(Closure.java:277)
+    at groovy.lang.Closure.run(Closure.java:360)
+    at java.lang.Thread.run(Thread.java:744)
+    </pre>
+    More details about this bug are at <a href="http://jira.codehaus.org/browse/GROOVY-5198">GROOVY-5198</a>
+        JIRA page.
+    <h2><b>Interleaving Description:</b></h2>
+    <p>
+    This is a possible buggy interleaving.
+    The numbers in the following code snippets present the global execution sequence.
+    <pre>
+groovy.lang.MetaClassImpl:
+        
+t1    t2    public MetaMethod retrieveStaticMethod(String methodName, Object[] arguments) {
+      3         final MetaMethodIndex.Entry e = metaMethodIndex.getMethods(theClass, methodName);
+                MetaMethodIndex.CacheEntry cacheEntry;
+                if (e != null) {
+                    cacheEntry = e.cachedStaticMethod;
+      4             if (cacheEntry != null && MetaClassHelper.sameClasses(cacheEntry.params, arguments, e.staticMethods instanceof MetaMethod))
+                    {
+      5                 return cacheEntry.method;
+                    }
+                    cacheEntry = new MetaMethodIndex.CacheEntry ();
+                    final Class[] classes = MetaClassHelper.convertToTypeArray(arguments);
+1                   cacheEntry.params = classes;
+                    cacheEntry.method = pickStaticMethod(methodName, classes);
+2                   e.cachedStaticMethod = cacheEntry;
+                    return cacheEntry.method;
+                }
+                ...
+            }
+    </pre>
+    a) Thread t1 executes 1, and now <i>params</i> is set to an instance.
+    <br>
+    b) Thread t1 executes 2 immediately after 1 because of reordering. Now <i>params</i> in <i>e.cachedStaticMethod</i> is not <i>null</i>, but <i>method</i> is <i>null</i>.
+    <br>
+    c) Context switched, and at 3 thread t2 gets the instance <i>e</i> whose <i>cachedStaticMethod</i> field was set by thread t1 at step b).
+    <br>
+    d) Thread t2 goes to 4 and passes the condition checking.
+    <br>
+    e) Thread t2 goes to 5 and returns <i>cacheEntry.method</i> that is still <i>null</i> and causes exception: <b>MissingMethodException</b>.  
+    </p>
+    <h2>
+        <b>How To Reproduce: </b> 
+    </h2>
+<p>This bug is reproduced under groovy 1.7.9 and JDK 1.6.0_33.
+    <br>Execute
+the following scripts to run the test to reproduce the bug (assume the
+location of the groovy test project is groovy_test_home). </p>
+<p><b>Linux:</b>
+    <br><i>${groovy_test_home}/scripts/5198.sh [--threadnum arg] [--loops arg] </i>
+    <br>
+    <b>Windows:</b>
+    <br>
+    <i>%groovy_test_home%\scripts\5198.bat [--threadnum arg] [--loops arg]</i></p>
+
+    <p>The default argument values will be taken if not specified.
+     For example, 
+<br><i>${groovy_test_home}/scripts/5198.sh</i> 
+<br>is the same as 
+<br><i>${groovy_test_home}/scripts/5198.sh --threadnum 2000 --loops 100</i><br>
+    </p>
+    <table border="1">
+        <tbody><tr>
+            <td>Option</td>
+            <td>Function</td>
+            <td>Default Value</td>
+            <td>Valid Values</td>
+        </tr>
+        <tr>
+            <td>--threadnum,-tn</td>
+            <td>set the number of threads, when the test checks whether a race could happen. Default value is 2000 if
+this option is not set explicitly.</td>
+            <td>2000</td>
+            <td>integer</td>
+        </tr>
+        <tr>
+            <td>--loops, -l</td>
+            <td>set the number of loops, when the test checks whether a race could happen. Default value is 100 if
+this option is not set explicitly.</td>
+            <td>100</td>
+            <td>integer</td>
+        </tr>
+
+    </tbody></table>
+</body></html>

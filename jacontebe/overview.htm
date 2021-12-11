@@ -1,0 +1,1505 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=macintosh">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 14">
+<link rel=File-List href="overview_files/filelist.xml">
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+.style0
+	{mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	white-space:nowrap;
+	mso-rotate:0;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	border:none;
+	mso-protection:locked visible;
+	mso-style-name:Normal;
+	mso-style-id:0;}
+td
+	{mso-style-parent:style0;
+	padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	mso-protection:locked visible;
+	white-space:nowrap;
+	mso-rotate:0;}
+.xl65
+	{mso-style-parent:style0;
+	white-space:normal;}
+.xl66
+	{mso-style-parent:style0;
+	font-family:"Calibri \(Body\)";
+	mso-generic-font-family:auto;
+	mso-font-charset:0;
+	text-align:left;
+	vertical-align:top;
+	white-space:normal;}
+.xl67
+	{mso-style-parent:style0;
+	color:red;
+	font-family:"Calibri \(Body\)";
+	mso-generic-font-family:auto;
+	mso-font-charset:0;
+	text-align:left;
+	vertical-align:top;
+	white-space:normal;}
+.xl68
+	{mso-style-parent:style0;
+	text-align:left;
+	vertical-align:top;
+	white-space:normal;}
+-->
+</style>
+</head>
+
+<body link="#0563C1" vlink="#954F72" class=xl65>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1603 style='border-collapse:
+ collapse;table-layout:fixed;width:1603pt'>
+ <col class=xl65 width=63 style='mso-width-source:userset;mso-width-alt:2688;
+ width:63pt'>
+ <col class=xl65 width=296 style='mso-width-source:userset;mso-width-alt:12629;
+ width:296pt'>
+ <col class=xl65 width=64 style='mso-width-source:userset;mso-width-alt:2730;
+ width:64pt'>
+ <col class=xl65 width=132 style='mso-width-source:userset;mso-width-alt:5632;
+ width:132pt'>
+ <col class=xl65 width=143 style='mso-width-source:userset;mso-width-alt:6101;
+ width:143pt'>
+ <col class=xl65 width=100 style='mso-width-source:userset;mso-width-alt:4266;
+ width:100pt'>
+ <col class=xl65 width=76 style='mso-width-source:userset;mso-width-alt:3242;
+ width:76pt'>
+ <col class=xl65 width=546 style='mso-width-source:userset;mso-width-alt:23296;
+ width:546pt'>
+ <col class=xl65 width=183 style='mso-width-source:userset;mso-width-alt:7808;
+ width:183pt'>
+ <tr height=15 style='height:15.0pt'>
+  <td height=15 class=xl68 width=63 style='height:15.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>369</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://issues.apache.org/jira/browse/DBCP-369</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>dbcp</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>race</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.2</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>java.lang.UnsatisfiedLinkError:
+  cannot find native java.util.zip.ZipFile.initIDs</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=15 style='height:15.0pt'>
+  <td height=15 class=xl68 width=63 style='height:15.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>270</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://issues.apache.org/jira/browse/DBCP-270</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>dbcp</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>resource deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.2</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>java.lang.UnsatisfiedLinkError:
+  cannot find native java.util.zip.ZipFile.initIDs</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=15 style='height:15.0pt'>
+  <td height=15 class=xl68 width=63 style='height:15.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>65</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://issues.apache.org/jira/browse/DBCP-65</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>dbcp</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>resource deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.2</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>java.lang.UnsatisfiedLinkError:
+  cannot find native java.util.zip.ZipFile.initIDs</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=28 style='height:28.0pt'>
+  <td height=28 class=xl68 width=63 style='height:28.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>271</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://issues.apache.org/jira/browse/DBCP-271</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>dbcp</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>inconsistent
+  synchronization</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.2</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>endless, JPF cannot detect
+  since it is not a race nor a deadlock</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=15 style='height:15.0pt'>
+  <td height=15 class=xl68 width=63 style='height:15.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>4129</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://issues.apache.org/jira/browse/DERBY-4129</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>derby</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>resource deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>10.5.1.1</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>java.lang.UnsatisfiedLinkError:
+  cannot find native java.util.zip.ZipFile.initIDs</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=28 style='height:28.0pt'>
+  <td height=28 class=xl68 width=63 style='height:28.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>5447</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://issues.apache.org/jira/browse/DERBY-5447</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>derby</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>resource deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>10.5.1.1</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>java.lang.UnsupportedOperationException<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>at java.lang.Class.getProtectionDomain(java/lang/Class.java:323)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=28 style='height:28.0pt'>
+  <td height=28 class=xl68 width=63 style='height:28.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>5560</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://issues.apache.org/jira/browse/DERBY-5560</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>derby</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>resource deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>10.5.1.1</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>java.lang.UnsupportedOperationException<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>at java.lang.Class.getProtectionDomain(java/lang/Class.java:323)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=28 style='height:28.0pt'>
+  <td height=28 class=xl68 width=63 style='height:28.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>5561</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://issues.apache.org/jira/browse/DERBY-5561</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>derby</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>race</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>10.5.1.1</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>java.lang.UnsupportedOperationException<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>at java.lang.Class.getProtectionDomain(java/lang/Class.java:323)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=15 style='height:15.0pt'>
+  <td height=15 class=xl68 width=63 style='height:15.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>764</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://issues.apache.org/jira/browse/DERBY-764</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>derby</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>resource deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>10.5.1.1</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>should run from junit, has
+  to modify test source code</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>4736</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>http://jira.codehaus.org/browse/GROOVY-4736</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>groovy</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>resource deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>lock in native method</td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.7.9</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>gov.nasa.jpf.jvm.NoUncaughtExceptionsProperty<br>
+  java.lang.NullPointerException<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>at java.io.File.&lt;init&gt;(File.java:49)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=15 style='height:15.0pt'>
+  <td height=15 class=xl68 width=63 style='height:15.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>6456</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>http://jira.codehaus.org/browse/GROOVY-6456</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>groovy</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>race</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.7.9</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>java.lang.UnsatisfiedLinkError:
+  cannot find native java.util.zip.ZipFile.initIDs</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>4292</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>http://jira.codehaus.org/browse/GROOVY-4292</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>groovy</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>race</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>infinite loop caused by
+  race. The structure of linked list is broken by race.</td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.7.9</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>java.lang.UnsupportedOperationException:
+  ClassLoader.defineClass() not yet supported<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>at java.lang.ClassLoader.defineClass(ClassLoader.java:102)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=28 style='height:28.0pt'>
+  <td height=28 class=xl68 width=63 style='height:28.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>3495</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>http://jira.codehaus.org/browse/GROOVY-3495</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>groovy</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>race</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.7.9</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>java.lang.UnsupportedOperationException:
+  ClassLoader.defineClass() not yet supported<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>at java.lang.ClassLoader.defineClass(ClassLoader.java:102)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>6068</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>http://jira.codehaus.org/browse/GROOVY-3495</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>groovy</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>race</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>cause a memory leak</td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.7.9</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>gov.nasa.jpf.jvm.NoUncaughtExceptionsProperty<br>
+  java.lang.NullPointerException: Calling
+  'toLowerCase(Ljava/util/Locale;)Ljava/lang/String;' on null object <br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>at org.apache.tools.ant.taskdefs.condition.Os.&lt;clinit&gt;(Os.java:31)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=15 style='height:15.0pt'>
+  <td height=15 class=xl68 width=63 style='height:15.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>5198</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>http://jira.codehaus.org/browse/GROOVY-5198</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>groovy</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>race</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>JMM reordering<span
+  style="mso-spacerun:yes">&nbsp;</span></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.7.9</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>java.lang.UnsatisfiedLinkError:
+  cannot find native java.util.zip.ZipFile.initIDs</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=28 style='height:28.0pt'>
+  <td height=28 class=xl68 width=63 style='height:28.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>38137</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://issues.apache.org/bugzilla/show_bug.cgi?id=38137</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>log4j</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>wait-notify deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>wait-notify issue in a
+  producer-consumer pattern</td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.2.13</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>endless loop</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=15 style='height:15.0pt'>
+  <td height=15 class=xl68 width=63 style='height:15.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>41214</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://issues.apache.org/bugzilla/show_bug.cgi?id=41214</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>log4j</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>resource deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.2.13</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>succeeded</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=15 style='height:15.0pt'>
+  <td height=15 class=xl68 width=63 style='height:15.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>44032</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://issues.apache.org/bugzilla/show_bug.cgi?id=44032</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>log4j</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>race</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.2.15</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>succeeded</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=28 style='height:28.0pt'>
+  <td height=28 class=xl68 width=63 style='height:28.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>50463</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'><span
+  style="mso-spacerun:yes">&nbsp;</span>https://issues.apache.org/bugzilla/show_bug.cgi?id=50463<span
+  style="mso-spacerun:yes">&nbsp;&nbsp;</span></td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>log4j</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>wait-notify deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>lost notify due to inproper
+  handled exception in thread.</td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.2.14</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>succeeded</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=15 style='height:15.0pt'>
+  <td height=15 class=xl68 width=63 style='height:15.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>54325</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://issues.apache.org/bugzilla/show_bug.cgi?id=54325</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>log4j</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>race</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.2.13</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>succeeded</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=15 style='height:15.0pt'>
+  <td height=15 class=xl68 width=63 style='height:15.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>1544</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://issues.apache.org/jira/browse/LUCENE-1544</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>lucene</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>wait-notify deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>2.4.0</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>Not a valid main class:
+  junit.textui.TestRunner,org.apache.lucene.Test1544</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>2783</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://issues.apache.org/jira/browse/LUCENE-2783</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>lucene</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>wait-notify deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>This deadlock is caused by
+  both resource lock and wait-notify.</td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>2.9.3</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>gov.nasa.jpf.JPFException:
+  no main() method in org.apache.lucene.index.Test2783<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>at gov.nasa.jpf.jvm.JVM.pushMainEntry(JVM.java:585)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=15 style='height:15.0pt'>
+  <td height=15 class=xl68 width=63 style='height:15.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>120</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://issues.apache.org/jira/browse/POOL-120</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>pool</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>race</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.4</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>succeeded</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=15 style='height:15.0pt'>
+  <td height=15 class=xl68 width=63 style='height:15.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>146</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://issues.apache.org/jira/browse/POOL-146</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>pool</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>wait-notify deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>business logic related wait</td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.5</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>succeeded</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=15 style='height:15.0pt'>
+  <td height=15 class=xl68 width=63 style='height:15.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>149</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://issues.apache.org/jira/browse/POOL-149</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>pool</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>wait-notify deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>wait after notify</td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.5</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>succeeded</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>162</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://issues.apache.org/jira/browse/POOL-162</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>pool</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>wait-notify deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>Inproper handling of the
+  interrupted thread causes wait-notify deadlock</td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.5</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>gov.nasa.jpf.jvm.NoUncaughtExceptionsProperty<br>
+  java.lang.Exception: wtt._thrown is not instance of
+  InterruptedException.<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>at Test162.testWhenExhaustedBlockInterupt(Test162.java:211)</td>
+  <td class=xl67 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>46</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://issues.apache.org/jira/browse/POOL-46</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>pool</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>inconsistent
+  synchronization<span style="mso-spacerun:yes">&nbsp;</span></td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.2</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>gov.nasa.jpf.jvm.NoUncaughtExceptionsProperty<br>
+  java.lang.NoSuchMethodException:
+  java.lang.Thread.getAllStackTraces()Ljava/util/Map;<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>at edu.illinois.jacontebe.monitors.ThreadMonitor.getCurrentThreads(ThreadMonitor.java:62)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>6436220</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://bugs.openjdk.java.net/browse/JDK-6436220</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>jdk6</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>race</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.6.0</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>Exception in thread
+  &quot;main&quot; java.lang.UnsupportedClassVersionError:
+  gov/nasa/jpf/tool/RunJPF : Unsupported major.minor version 51.0<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>at
+  java.lang.ClassLoader.defineClass1(Native Method)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>6492872</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://bugs.openjdk.java.net/browse/JDK-6492872</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>jdk6</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>resource deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.6.0</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>Exception in thread
+  &quot;main&quot; java.lang.UnsupportedClassVersionError:
+  gov/nasa/jpf/tool/RunJPF : Unsupported major.minor version 51.0<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>at
+  java.lang.ClassLoader.defineClass1(Native Method)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>6582568</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://bugs.openjdk.java.net/browse/JDK-6582568</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>jdk6</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>resource deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.6.0</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>Exception in thread
+  &quot;main&quot; java.lang.UnsupportedClassVersionError:
+  gov/nasa/jpf/tool/RunJPF : Unsupported major.minor version 51.0<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>at
+  java.lang.ClassLoader.defineClass1(Native Method)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>6588239</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://bugs.openjdk.java.net/browse/JDK-6588239</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>jdk6</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>resource deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.6.0</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>Exception in thread
+  &quot;main&quot; java.lang.UnsupportedClassVersionError:
+  gov/nasa/jpf/tool/RunJPF : Unsupported major.minor version 51.0<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>at
+  java.lang.ClassLoader.defineClass1(Native Method)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>4742723</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://bugs.openjdk.java.net/browse/JDK-4742723</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>jdk6</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>race</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>Affect Windows. I/O problem</td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.6.0</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>Exception in thread
+  &quot;main&quot; java.lang.UnsupportedClassVersionError:
+  gov/nasa/jpf/tool/RunJPF : Unsupported major.minor version 51.0<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>at
+  java.lang.ClassLoader.defineClass1(Native Method)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>7132889</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://bugs.openjdk.java.net/browse/JDK-7132889</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>jdk6</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>race</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.6.0</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>Exception in thread
+  &quot;main&quot; java.lang.UnsupportedClassVersionError:
+  gov/nasa/jpf/tool/RunJPF : Unsupported major.minor version 51.0<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>at
+  java.lang.ClassLoader.defineClass1(Native Method)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>6927486</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://bugs.openjdk.java.net/browse/JDK-6927486</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>jdk6</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>resource deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.6.0</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>Exception in thread
+  &quot;main&quot; java.lang.UnsupportedClassVersionError:
+  gov/nasa/jpf/tool/RunJPF : Unsupported major.minor version 51.0<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>at
+  java.lang.ClassLoader.defineClass1(Native Method)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>7100996</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://bugs.openjdk.java.net/browse/JDK-7100996</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>jdk6</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>race</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.6.0</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>Exception in thread
+  &quot;main&quot; java.lang.UnsupportedClassVersionError:
+  gov/nasa/jpf/tool/RunJPF : Unsupported major.minor version 51.0<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>at
+  java.lang.ClassLoader.defineClass1(Native Method)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>4243978</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://bugs.openjdk.java.net/browse/JDK-4243978</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>jdk6</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>race</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>Didn't synchronize on the
+  same object.</td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.6.0</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>Exception in thread
+  &quot;main&quot; java.lang.UnsupportedClassVersionError:
+  gov/nasa/jpf/tool/RunJPF : Unsupported major.minor version 51.0<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>at
+  java.lang.ClassLoader.defineClass1(Native Method)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>6934356</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://bugs.openjdk.java.net/browse/JDK-6934356</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>jdk6</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>resource deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.6.0</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>Exception in thread
+  &quot;main&quot; java.lang.UnsupportedClassVersionError:
+  gov/nasa/jpf/tool/RunJPF : Unsupported major.minor version 51.0<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>at
+  java.lang.ClassLoader.defineClass1(Native Method)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>6648001<br>
+  <span style="mso-spacerun:yes">&nbsp;</span></td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://bugs.openjdk.java.net/browse/JDK-6648001</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>jdk6</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>wait-notify deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>one thread is waiting for a
+  notify which will never come.</td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.6.0</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>Exception in thread
+  &quot;main&quot; java.lang.UnsupportedClassVersionError:
+  gov/nasa/jpf/tool/RunJPF : Unsupported major.minor version 51.0<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>at
+  java.lang.ClassLoader.defineClass1(Native Method)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>4779253</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://bugs.openjdk.java.net/browse/JDK-4779253</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>jdk6</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>race</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>buggy interleaving switches
+  context at &amp;&amp;</td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.6.0</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>Exception in thread
+  &quot;main&quot; java.lang.UnsupportedClassVersionError:
+  gov/nasa/jpf/tool/RunJPF : Unsupported major.minor version 51.0<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>at
+  java.lang.ClassLoader.defineClass1(Native Method)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>4813150</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://bugs.openjdk.java.net/browse/JDK-4813150<span
+  style="mso-spacerun:yes">&nbsp;&nbsp;</span></td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>jdk6</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>race</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.6.0</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>Exception in thread
+  &quot;main&quot; java.lang.UnsupportedClassVersionError:
+  gov/nasa/jpf/tool/RunJPF : Unsupported major.minor version 51.0<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>at
+  java.lang.ClassLoader.defineClass1(Native Method)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>6977738</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://bugs.openjdk.java.net/browse/JDK-6977738</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>jdk6</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>resource deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.6.0_21</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>Exception in thread
+  &quot;main&quot; java.lang.UnsupportedClassVersionError:
+  gov/nasa/jpf/tool/RunJPF : Unsupported major.minor version 51.0<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>at
+  java.lang.ClassLoader.defineClass1(Native Method)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=30 style='height:30.0pt'>
+  <td height=30 class=xl68 width=63 style='height:30.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>7045594</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://bugs.openjdk.java.net/browse/JDK-7045594</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>jdk7</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>race</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.7.0</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>no errors detected</td>
+  <td class=xl66 width=183 style='width:183pt'><br>
+  </td>
+ </tr>
+ <tr height=15 style='height:15.0pt'>
+  <td height=15 class=xl68 width=63 style='height:15.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>7122142</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://bugs.openjdk.java.net/browse/JDK-7122142</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>jdk7</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>resource deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.7.0</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>no errors detected</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=15 style='height:15.0pt'>
+  <td height=15 class=xl68 width=63 style='height:15.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>7132378</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://bugs.openjdk.java.net/browse/JDK-7132378</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>jdk7</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>race</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>ASM</td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.7.0 - 1.7.0_40</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>no errors detected</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>8012019</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://bugs.openjdk.java.net/browse/JDK-8012019</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>jdk7</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>wait-notify deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>Windows only. One waiting
+  thread holds locks that block two other threads<span
+  style="mso-spacerun:yes">&nbsp;</span></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.7.0_17 - 1.7.0_40</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>gov.nasa.jpf.jvm.NoUncaughtExceptionsProperty<br>
+  java.lang.UnsatisfiedLinkError:can not find native
+  sun.management.VMManagementImpl.getVersion0<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>at sun.management.VMManagementImpl.getVersion0(no peer)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=42 style='height:42.0pt'>
+  <td height=42 class=xl68 width=63 style='height:42.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>8010939</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://bugs.openjdk.java.net/browse/JDK-8010939</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>jdk7</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>resource deadlock</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'></td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.7.0_13 - 1.7.0_25</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>gov.nasa.jpf.jvm.NotDeadlockedProperty<br>
+  deadlock encountered:<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>thread
+  java.lang.Thread:{id:0,name:main,status:WAITING,priority:5,lockCount:0,suspendCount:0}</td>
+  <td class=xl67 width=183 style='width:183pt'></td>
+ </tr>
+ <tr height=28 style='height:28.0pt'>
+  <td height=28 class=xl68 width=63 style='height:28.0pt;width:63pt;font-size:
+  11.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Calibri;border:.5pt solid black'>8023541</td>
+  <td class=xl68 width=296 style='width:296pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>https://bugs.openjdk.java.net/browse/JDK-8023541</td>
+  <td class=xl68 width=64 style='width:64pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>jdk7</td>
+  <td class=xl68 width=132 style='width:132pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>race</td>
+  <td class=xl68 width=143 style='width:143pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>partial instantiated,ASM</td>
+  <td class=xl68 width=100 style='width:100pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>1.7.0</td>
+  <td class=xl68 width=76 style='width:76pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>failed</td>
+  <td class=xl68 width=546 style='width:546pt;font-size:11.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Calibri;border:.5pt solid black'>java.lang.UnsupportedOperationException:
+  sun.misc.SharedSecrets.getJavaIOFileDescriptorAccess() not supported yet<br>
+  <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>at
+  sun.misc.SharedSecrets.getJavaIOFileDescriptorAccess(SharedSecrets.java:134)</td>
+  <td class=xl66 width=183 style='width:183pt'></td>
+ </tr>
+</table>
+
+</body>
+
+</html>

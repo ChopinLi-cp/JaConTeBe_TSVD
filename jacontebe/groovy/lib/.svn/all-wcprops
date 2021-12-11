@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/conbenchmark/!svn/ver/676/trunk/benchmarks/groovy/lib
+END
+groovy-all-1.7.9.jar
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/conbenchmark/!svn/ver/274/trunk/benchmarks/groovy/lib/groovy-all-1.7.9.jar
+END
+groovy-src-1.7.9.zip
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/conbenchmark/!svn/ver/274/trunk/benchmarks/groovy/lib/groovy-src-1.7.9.zip
+END
+javaee.jar
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/conbenchmark/!svn/ver/274/trunk/benchmarks/groovy/lib/javaee.jar
+END
+ant-launcher.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/conbenchmark/!svn/ver/274/trunk/benchmarks/groovy/lib/ant-launcher.jar
+END
+ant.jar
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/conbenchmark/!svn/ver/274/trunk/benchmarks/groovy/lib/ant.jar
+END

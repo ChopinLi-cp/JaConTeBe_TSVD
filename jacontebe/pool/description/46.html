@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html><head>
+
+
+<meta charset="UTF-8"><title>pool bug 46</title></head><body>
+
+<h1>
+    <b>Bug 46
+    </b>
+</h1>
+<h2>
+    <b>Bug Description:
+    </b>
+</h2>
+
+<p>
+    This is an inconsistent synchronization bug.
+    <br>The private field "closed" in
+    <b>org.apache.commons.pool.BaseObjectPool
+    </b>
+    is neither volatile, nor the accesses to "closed" are synchronized.
+    <br>
+    More details about this bug are at <a href="https://issues.apache.org/jira/browse/POOL-46">POOL-46</a> JIRA page.
+</p>
+<h2>
+    <b>Interleaving Description:
+    </b>
+</h2>
+code snippet 1:
+    <pre class="prettyprint lang-java">        ...<br>2	testBasePool.close();<br>	...<br>    </pre>
+
+code snippet 2:
+<pre class="prettyprint lang-java">	...<br>	while (true) {<br>1		if (testBasePool.isClosed()) {<br>                    break;<br>                }<br>	}<br> 	...</pre>
+<br>
+    <br>a)thread 1 checks isClosed at 1 and gets false and keeps looping.
+    <br>b)thread 2 set "closed" value to true at 2.
+    <br>c)thread 1 may not see the change of "closed" and still gets false value and keeps looping.
+    <br>
+    <br>Step c) is not guaranteed to happen. It's effect depends on machine's JVM and CPU.
+    <br>But thread 1 still runs more loops than expected even if it does stop in the end.
+
+
+
+	<h2>
+		<b>How To Reproduce:</b>
+	</h2>
+	
+	<p>
+    This bug is reproduced under pool 1.2 and JDK 1.6.0_33.
+    <br>Execute the following scripts to run the test to reproduce the bug (assume the location of the pool test project is pool_test_home).
+    </p>
+    <p>
+        <b>Linux:</b>
+    <br>
+        <i>
+            ${pool_test_home}/scripts/46.sh
+        </i>
+    <br>
+        <b>Windows:</b>
+    <br>
+        <i>
+            %pool_test_home%\scripts\46.bat
+        </i>
+    </p>
+</body></html>

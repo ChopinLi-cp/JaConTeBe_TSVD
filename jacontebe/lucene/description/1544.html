@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html><head>
+
+
+
+
+<meta charset="UTF-8"><title>lucene bug 1544</title></head><body>
+
+
+	<h1>
+		<b>Bug 1544</b>
+	</h1>
+
+	<h2>
+		<b>Bug Description:</b>
+	</h2>
+	<p>This is a wait-notify deadlock bug. 
+<br>1) In main thread, addIndexes(IndexReader[]) acquires the write lock,
+then begins optimization of destination index.
+
+<br>2) Main thread starts a ConcurrentMergeScheduler.MergeThread
+to merge the 2 segments.
+
+<br>3) Merging thread tries to acquire the read lock at
+IndexWriter.blockAddIndexes(boolean) in
+IndexWriter.StartCommit(), but cannot as...
+
+<br>4) Main thread still holds the write lock, and is
+waiting for the runningMerges data structure
+to be devoid of merges with their optimize flag
+set.
+
+<br>Both working threads are waiting for each other, as shown in stack trace below:
+
+<pre>	<br>"Lucene Merge Thread #0" daemon prio=6 tid=0x0000000006efe000 nid=0x2ad0 in Object.wait() [0x0000000007e5f000]<br>    java.lang.Thread.State: TIMED_WAITING (on object monitor)<br>    at java.lang.Object.wait(Native Method)<br>    - waiting on &lt;0x00000007d6372780&gt; (a org.apache.lucene.index.IndexWriter)<br>    at org.apache.lucene.index.IndexWriter.doWait(IndexWriter.java:4491)<br>    - locked &lt;0x00000007d6372780&gt; (a org.apache.lucene.index.IndexWriter)<br>    at org.apache.lucene.index.IndexWriter.acquireRead(IndexWriter.java:376)<br>    - locked &lt;0x00000007d6372780&gt; (a org.apache.lucene.index.IndexWriter)<br>    at org.apache.lucene.index.IndexWriter.blockAddIndexes(IndexWriter.java:2811)<br>    at org.apache.lucene.index.IndexWriter.startCommit(IndexWriter.java:4533)<br>    - locked &lt;0x00000007d6372780&gt; (a org.apache.lucene.index.IndexWriter)<br>    at org.apache.lucene.index.IndexWriter.commit(IndexWriter.java:3342)<br>    at org.apache.lucene.index.IndexWriter.mergeMiddle(IndexWriter.java:4317)<br>    at org.apache.lucene.index.IndexWriter.merge(IndexWriter.java:3877)<br>    at org.apache.lucene.index.ConcurrentMergeScheduler.doMerge(ConcurrentMergeScheduler.java:205)<br>    at org.apache.lucene.index.ConcurrentMergeScheduler$MergeThread.run(ConcurrentMergeScheduler.java:260)<br>    <br>"main" prio=6 tid=0x000000000054c800 nid=0x1bac in Object.wait() [0x000000000204e000]<br>    java.lang.Thread.State: TIMED_WAITING (on object monitor)<br>    at java.lang.Object.wait(Native Method)<br>    - waiting on &lt;0x00000007d6372780&gt; (a org.apache.lucene.index.IndexWriter)<br>    at org.apache.lucene.index.IndexWriter.doWait(IndexWriter.java:4491)<br>    - locked &lt;0x00000007d6372780&gt; (a org.apache.lucene.index.IndexWriter)<br>    at org.apache.lucene.index.IndexWriter.optimize(IndexWriter.java:2268)<br>    - locked &lt;0x00000007d6372780&gt; (a org.apache.lucene.index.IndexWriter)<br>    at org.apache.lucene.index.IndexWriter.optimize(IndexWriter.java:2203)<br>    at org.apache.lucene.index.IndexWriter.optimize(IndexWriter.java:2183)<br>    at org.apache.lucene.index.IndexWriter.addIndexes(IndexWriter.java:3165)<br>    at org.apache.lucene.Test1544.testAddIndexesByIndexReader(Test1544.java:88)<br><br>	</pre>
+
+	 More details about this bug are at <a href="https://issues.apache.org/jira/browse/LUCENE-1544">LUCENE-1544</a>
+		JIRA page.
+		</p>
+	<h2>
+		<b>How To Reproduce: </b>
+	</h2>
+<p>
+		This bug is reproduced under lucene 2.4.0 and JDK 1.6.0_33. <br>Execute
+the following scripts to run the test to reproduce the bug (assume the
+location of the lucene test project is lucene_test_home).</p>
+<p>
+<b>Linux:</b>
+	<br>
+	<i>${lucene_test_home}/scripts/1544.sh </i>
+	<br>
+	<b>Windows:</b>
+	<br>
+	<i>%lucene_test_home%\scripts\1544.bat</i></p>
+</body></html>

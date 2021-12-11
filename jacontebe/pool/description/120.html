@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html><head>
+
+
+<meta charset="UTF-8"><title>pool bug 120</title></head><body>
+
+
+	<h1>
+		<b>Bug 120</b>
+	</h1>
+
+	<h2>
+		<b>Bug Description:</b>
+	</h2>
+    <p>
+	This is a race bug for
+	<b>org.apache.commons.pool.impl.GenericObjectPool</b>.
+    <br>
+	The expected exception is
+    <b>java.lang.IllegalStateException
+        </b>: Too many active instances: 3.
+    <br>
+    More details about this bug are at
+	<a href="https://issues.apache.org/jira/browse/POOL-120">POOL-120</a> JIRA page.
+</p>
+    <h2>
+		<b>Interleaving Description:</b>
+	</h2>
+<pre><b>org.apache.commons.pool.impl.GenericObjectPool</b>:<br><br>t1  t2  public void addObject() throws Exception {<br>            assertOpen();<br>            if (_factory == null) {<br>                throw new IllegalStateException("Cannot add objects without a factory.");<br>            }<br>1           Object obj = _factory.makeObject();<br>            synchronized (this) {<br>                try {<br>                    assertOpen();<br>4                   addObjectToPool(obj, false);<br>                } catch (IllegalStateException ex) { // Pool closed<br>                    try {<br>                        _factory.destroyObject(obj);<br>                    } catch (Exception ex2) {<br>                        // swallow<br>                    }<br>                    throw ex;<br>                }<br>            }<br>        }       <br><br>        public Object borrowObject() throws Exception {<br>            ...<br>            for(;;) {<br>                ObjectTimestampPair pair = null;<br>                <br>                synchronized (this) {<br>                    assertOpen();<br>                    // if there are any sleeping, just grab one of those<br>                    try {<br>    3                   pair = (ObjectTimestampPair)(_pool.removeFirst());<br>                    } catch(NoSuchElementException e) {<br>                        ; /* ignored */<br>                    }<br>                    ...<br>                 }<br>                 ...<br>                 <br>    5           if(null == pair) {<br>                    try {<br>    6                       Object obj = _factory.makeObject();<br>                         ...<br>                    }<br>                    ...<br>                }<br>                ...<br>        }<br>            <br>        public Object makeObject() {<br>            synchronized (this) {<br>2   7           activeCount++;<br>                if (activeCount &gt; maxActive) {<br>    8               throw new IllegalStateException(<br>                        "Too many active instances: " + activeCount);<br>                }<br>            }<br>            ...<br></pre>
+<p>
+Precondition: <i>MaxActive</i> is N, and N-1 active objects have been borrowed from pool. There are 0 idle objects in pool.<br>
+<i>numIdle</i> &gt; 0 and the idle object evictor is set to run (<i>timeBetweenEvictionRunsMillis</i> &gt; 0)<br>
+thread 1 is evictor thread and thread 2 is borrow thread.
+</p>
+<p>
+a)  because there are 0 idle objects in pool and <i>minIdle</i> is set to more than 0, thread 1 calls <i>ensureMinIdle</i> method to add
+    objects into pool after evicting. So t1 executes 1, and <i>activeCount</i> is added to N at 2 now. <br>
+b)  before thread 1 adds the object generated at step a) into pool at 4, context switched, thread 2 executes 3. And
+   <i>pair</i> is set to null because pool is still empty. <br>
+c)  context switched, thread 1 executes 4. <br>
+d)  context switched, thread 2 checks if <i>pair</i> is null at 5. <i>pair</i> is null due to step b), so thread 2 goes to 6.<br>
+e)  thread 2 executes 7, and <i>activeCount</i> is N+1.<br>
+f)  thread 2 comes to 8, because <i>activeCount</i> (which is N+1) is larger than <i>maxActicve</i> (which is N) now.</p>
+
+	
+
+	<h2>
+		<b>How To Reproduce:</b>
+	</h2>
+
+	<p>
+		This bug is reproduced under pool 1.4 and JDK 1.6.0_33.
+        <br>Execute the following scripts to run the test to reproduce the bug (assume the location of the pool test project is pool_test_home).
+    </p>
+    <p>
+	<b>Linux:</b>
+	<br>
+	<i>${pool_test_home}/scripts/120.sh </i>
+	<br>
+	<b>Windows:</b>
+	<br>
+	<i>%pool_test_home%\scripts\120.bat</i>
+    </p>
+</body></html>

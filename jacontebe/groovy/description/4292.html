@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+<meta charset="UTF-8">
+<title>groovy bug 4292</title>
+</head>
+<body>
+	<h1>
+		<b>Bug 4292</b>
+	</h1>
+
+	<h2>
+		<b>Bug Description:</b>
+	</h2>
+	<p>
+		This is a race.<br> This bug is caused by multi-threaded
+		accessing to the non-thread-safe WeakHashMap class at <b>org.codehaus.groovy.ast.ClassHelper#makeCached</b>
+		<br>More details about this bug are at <a
+			href="http://jira.codehaus.org/browse/GROOVY-4292">GROOVY-4292</a>
+		JIRA page.
+	</p>
+
+	<h2></h2>
+
+	<h2>
+		<b>Interleaving Description:</b>
+	</h2>
+
+
+
+	As shown in the following code,
+	<i>classCache</i> is an instance of WeakHashMap which is not thread
+	safe, and it is accessed without any protection from multi-threading.
+	Therefore, the program may encounter an endless loop under
+	multi-threading environment.
+	<pre>org.codehaus.groovy.ast.ClassHelper
+	
+    public static ClassNode makeCached(Class c){
+        final SoftReference&lt;ClassNode&gt; classNodeSoftReference = ClassHelperCache.classCache.get(c);
+        ClassNode classNode;
+        if (classNodeSoftReference == null || (classNode = classNodeSoftReference.get()) == null) {
+            classNode = new ClassNode(c);
+            ClassHelperCache.classCache.put(c, new SoftReference&lt;ClassNode&gt;(classNode));
+            VMPluginFactory.getPlugin().setAdditionalClassInformation(classNode);
+         }
+         return classNode;    
+    }
+	</pre>
+	The following code describes the root cause of the endless loop happened in
+	this bug.
+	<br> Numbers in following code snippets present the global
+	execution sequence.
+	<br>When weakHashMap is almost full, and two threads are putting
+	more elements into the weakHashMap, both threads may need to call
+	resize() method to enlarge the map. Following interleaving may happen
+	and cause the corruption of weakHashMap.
+	<pre>t1 &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; t2 &nbsp; &nbsp;&nbsp; private void transfer(Entry&lt;K,V&gt;[] src, Entry&lt;K,V&gt;[] dest, boolean rehash) {<br>     &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; for (int j = 0; j &lt; src.length; ++j) {<br>1   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; Entry&lt;K,V&gt; e = src[j];<br>          &nbsp; &nbsp; &nbsp;&nbsp;     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src[j] = null;<br>3,18,23   &nbsp; 5,10     &nbsp; &nbsp; &nbsp; while (e != null) {<br>4,19,24  &nbsp; &nbsp;6,11     &nbsp;  &nbsp;&nbsp; &nbsp; &nbsp; Entry&lt;K,V&gt; next = e.next;<br>             &nbsp;&nbsp; &nbsp; &nbsp;      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Object key = e.get();<br>           &nbsp; &nbsp; &nbsp;&nbsp;        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (key == null) {<br>                &nbsp;   &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ...<br>                &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;} else {<br>                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;...<br>                    &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; int i = indexFor(e.hash, dest.length);<br>15,20,25  &nbsp; 7,12        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; e.next = dest[i];<br>16,21,26   &nbsp;8,13        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; dest[i] = e;<br>             &nbsp;&nbsp; &nbsp; &nbsp;      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br>17,22,27   &nbsp;9,14   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;e = next;<br>            &nbsp; &nbsp;&nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;}<br>&nbsp;&nbsp;        &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp;}<br>    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</pre>
+
+
+	<p>
+		Precondition: there is a chain at src[j]: A--&gt;B--&gt;null, in the
+		current hash table.<br>
+	</p>
+
+	a) Thread t1 calls the
+	<span style="font-weight: bold;">transfer</span> method in the
+	<span style="font-weight: bold;">resize</span> method, and sets Entry
+	<span style="font-style: italic;">e</span> = src[j] = A at 1.
+	<br>
+	<br> - Context switched:
+	<br> b) Thread t2 calls the
+	<span style="font-weight: bold;">transfer</span> method in the
+	<span style="font-weight: bold;">resize</span> method, and sets Entry
+	<span style="font-style: italic;">e</span> = src[j] = A at 2.
+	<br>
+	<br> - Context switched:
+	<br> c) Thread t1 continues after 1, sets Entry
+	<i>next</i> to
+	<span style="font-style: italic;">e.next</span> at 4, i.e.
+	<span style="font-style: italic;">e</span> = A,
+	<span style="font-style: italic;">next</span> = B, after entering the
+	while loop at 3.
+	<br>
+	<br> - Context switched:
+	<br>
+	<br> d) Thread t2 enters the 1st iteration at 5, and then set
+	<span style="font-style: italic;">next</span> to
+	<span style="font-style: italic;">e.next</span> (i.e. A.next, which is
+	B) at 6.
+	<br> e)
+	<font style="color: black;" color="red">Thread t2 adds A to the
+		 head of the linked list at dest[i], resulting a new chain:
+		A-&gt;null, and then set e to B at 9.</font>
+	<br> f) Thread t2 enters the 2nd iteration at 10, and then set
+	<span style="font-style: italic;">next</span> to B.next, i.e. null at
+	11.
+	<br> g)
+	<font style="color: black;" color="red">Thread t2 adds B to 
+		the head of the list at dest[i] at 12 and 13, resulting a reverse of
+		the original linked list. Now the list is B-A-&gt;null.</font>
+	<br> h) Thread t2 then moves to 14, where
+	<span style="font-style: italic;">e</span> is set to null, since
+	<span style="font-style: italic;">next</span> is set to null at step
+	f).
+	<br>
+	<br>- Context switched: thread t1 continues its 1st iteration of
+	the while loop after 4.
+	<br> - Note: thread t2 has reversed the order of the linked list
+	A-&gt;B-&gt;null, and gets a new list B-&gt;A-&gt;null. However, thread
+	t1 still believes B is next to A as
+	<span style="font-style: italic;">e</span> = A, next = B were set at
+	step c).
+	<br>
+	<span style="color: black;"> i) t1 </span>
+	<s style="color: black;"><span style="font-style: italic;"></span></s>
+	<font style="color: black;" color="red">adds <span
+		style="font-style: italic;">e</span> to the head of the list at
+	</font>
+	<span style="color: black;">dest[i] at 15 and 16, resulting a
+		new chain dest[i]: A--&gt;null.</span>
+	<br> j) t1 sets
+	<span style="font-style: italic;">e</span> to
+	<span style="font-style: italic;">B</span> at 17.
+	<br>
+	<br> - 2nd iteration of the while loop in Thread t1:
+	<br> k) t1 sets the value of
+	<span style="font-style: italic;">next</span> to
+	<span style="font-style: italic;">e.next</span> at 19, resulting
+	<span style="font-style: italic;">next</span> = A, due to B--&gt;A at
+	step g).
+	<br> l) t1
+	<span style="color: black;"> </span>
+	<s style="color: black;"><span style="font-style: italic;"></span></s>
+	<font style="color: black;" color="red">adds <span
+		style="font-style: italic;">e</span> to the head of the list at
+	</font>
+	<span style="color: black;">dest[i] </span>at 20 and 21, resulting an
+	updated chain dest[i]: B--&gt;A--&gt;null.
+	<br> m) t1 sets
+	<span style="font-style: italic;">e</span> to
+	<span style="font-style: italic;">next</span> at 22.
+	<br>
+	<br> - 3rd iteration of the while loop in Thread t1:
+	<br> n) t1 sets the value of
+	<span style="font-style: italic;">next</span> to e.next at 24,
+	resulting
+	<span style="font-style: italic;">next </span>= dest[i], due to step
+	l).
+	<br> o) t1
+	<span style="color: black;"></span>
+	<s style="color: black;"><span style="font-style: italic;"></span></s>
+	<font style="color: black;" color="red">adds <span
+		style="font-style: italic;">e</span> to the head of B at
+	</font>
+	<span style="color: black;">dest[i]</span> at 25 and 26, resulting an
+	updated chain: A&lt;--&gt;B--&gt;null. (A.next = B and B.next = A)
+	<br> p) t1 sets
+	<span style="font-style: italic;">e</span> to
+	<span style="font-style: italic;">next</span> at 27.
+	<br>
+	<br> Now, a circular reference between A and B exists: A.next = B and B.next = A. An
+	infinite loop is caused if the linked list is accessed then.
+	<br>
+
+	<h2>
+		<b>How To Reproduce: </b>
+	</h2>
+
+
+	<p>
+		This bug has been reproduced under groovy 1.7.9, JDK 1.6.0_33, JDK
+		1.7.0 and JDK 1.8.0. <br> Execute the following scripts to run
+		the test to reproduce the bug (assume the location of the groovy test
+		project is groovy_test_home).
+	</p>
+
+	<p>
+		<b>Linux:</b><br> <i>${groovy_test_home}/scripts/4292.sh
+			[--threadnum arg] [--loops arg] [--monitoroff]</i><br> <b>Windows:</b><br>
+		<i>%groovy_test_home%\scripts\4292.bat [--threadnum arg]
+			[--loops arg] [--monitoroff]</i>
+	</p>
+
+	<p>
+		The default argument values will be taken if not specified. For
+		example, <br> <i>${groovy_test_home}/scripts/4292.sh</i> <br>
+		is the same as <br> <i>${groovy_test_home}/scripts/4292.sh
+			--threadnum 4 --loops 5</i>
+	</p>
+
+	<font color="red">Warning: This test case may cause 100% CPU
+		utilization and endless loop of program when --monitoroff option is
+		set.</font>
+	<br>
+
+	<br>
+
+	<table border="1">
+
+		<tbody>
+			<tr>
+
+				<td>Option</td>
+				<td>Function</td>
+				<td>Default Value</td>
+				<td>Valid Values</td>
+			</tr>
+			<tr>
+				<td>--threadnum, -tn</td>
+
+				<td>set the number of threads, when the test checks whether a race could happen. Default value is 4 if
+this option is not set explicitly.</td>
+				<td>4</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>--loops, -l</td>
+				<td>set the number of loops, when the test checks whether a race could happen. Default value is 5 if
+this option is not set explicitly.</td>
+
+				<td>5</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>--monitoroff, -mo</td>
+				<td>Turn off to stop reporting bug messages and ending program
+					when the test runs into the expected concurrency bug which is an
+					endless loop. <br> User has to terminate the program manually
+					when this option is set.
+				</td>
+
+				<td>N/A</td>
+				<td>N/A</td>
+			</tr>
+
+		</tbody>
+	</table>
+</body>
+</html>

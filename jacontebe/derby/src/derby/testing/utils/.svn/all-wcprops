@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/conbenchmark/!svn/ver/1175/trunk/benchmarks/derby/src/derby/testing/utils
+END
+DerbyBase.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/conbenchmark/!svn/ver/1175/trunk/benchmarks/derby/src/derby/testing/utils/DerbyBase.java
+END
+ByteAlphabet.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/conbenchmark/!svn/ver/1175/trunk/benchmarks/derby/src/derby/testing/utils/ByteAlphabet.java
+END
+LoopingAlphabetStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/conbenchmark/!svn/ver/1175/trunk/benchmarks/derby/src/derby/testing/utils/LoopingAlphabetStream.java
+END
+CharAlphabet.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/conbenchmark/!svn/ver/1175/trunk/benchmarks/derby/src/derby/testing/utils/CharAlphabet.java
+END

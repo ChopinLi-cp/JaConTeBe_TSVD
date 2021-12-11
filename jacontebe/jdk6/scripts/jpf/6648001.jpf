@@ -1,0 +1,9 @@
+#--- dependencies on other JPF modules
+
+
+#--- what JPF should run
+target = Test6648001
+classpath = bin:../lib/coring-1.4.jar:../lib/jacontebe-1.0.jar
+target_args=-mo
+#--- other stuff that defines how to run JPF
+race.exclude=javax.*

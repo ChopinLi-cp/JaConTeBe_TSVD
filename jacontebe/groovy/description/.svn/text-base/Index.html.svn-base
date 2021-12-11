@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html><head>
+
+
+<meta charset="UTF-8"><title>Groovy</title></head><body>
+<h2>Bug Summary<br></h2>
+
+	
+<table style="border-style: solid;" border="1">
+
+		<tbody><tr>
+			<td>Test</td>
+			<td>Bug ID</td>
+			<td>Bug Type</td>
+			<td>Bug Link</td><td style="vertical-align: top;">Buggy Project Version</td>
+      <td style="vertical-align: top;">Buggy Project Source</td>
+
+		</tr>
+
+		<tr>
+			<td><a href="4736.html">Test4736</a></td>
+			<td>4736</td>
+			<td>deadlock</td>
+			<td>http://jira.codehaus.org/browse/GROOVY-4736</td><td style="vertical-align: top;">1.7.9</td>
+      <td style="vertical-align: top;">http://dist.groovy.codehaus.org/distributions/groovy-src-1.7.9.zip</td>
+
+
+
+		</tr>
+
+		<tr>
+			<td><a href="6456.html">Test6456</a></td>
+			<td>6456</td>
+			<td>race</td>
+			<td>http://jira.codehaus.org/browse/GROOVY-6456</td><td style="vertical-align: top;">1.7.9</td>
+      <td style="vertical-align: top;">http://dist.groovy.codehaus.org/distributions/groovy-src-1.7.9.zip</td>
+
+		</tr>
+		<tr>
+
+			<td><a href="4292.html">Test4292</a></td>
+			<td>4292</td>
+			<td>race</td>
+			<td>http://jira.codehaus.org/browse/GROOVY-4292</td><td style="vertical-align: top;">1.7.9</td>
+      <td style="vertical-align: top;">http://dist.groovy.codehaus.org/distributions/groovy-src-1.7.9.zip</td>
+
+		</tr>
+		<tr>
+			<td><a href="3495.html">Test3495</a></td>
+
+			<td>3495</td>
+			<td>race</td>
+			<td>http://jira.codehaus.org/browse/GROOVY-3495</td><td style="vertical-align: top;">1.7.9</td>
+      <td style="vertical-align: top;">http://dist.groovy.codehaus.org/distributions/groovy-src-1.7.9.zip</td>
+
+		</tr>
+		<tr>
+			<td><a href="6068.html">Test6068</a></td>
+			<td>6068</td>
+
+			<td>race</td>
+			<td>http://jira.codehaus.org/browse/GROOVY-3495</td><td style="vertical-align: top;">1.7.9</td>
+      <td style="vertical-align: top;">http://dist.groovy.codehaus.org/distributions/groovy-src-1.7.9.zip</td>
+
+		</tr>
+		<tr>
+			<td><a href="5198.html">Test5198</a></td>
+			<td>5198</td>
+			<td>race</td>
+
+			<td>http://jira.codehaus.org/browse/GROOVY-5198</td><td style="vertical-align: top;">1.7.9</td>
+      <td style="vertical-align: top;">http://dist.groovy.codehaus.org/distributions/groovy-src-1.7.9.zip</td>
+
+		</tr>
+	</tbody>
+</table>
+</body></html>

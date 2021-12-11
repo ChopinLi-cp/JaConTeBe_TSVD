@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html><head>
+
+
+
+
+<meta charset="UTF-8"><title>derby bug 5560</title></head><body>
+    
+
+        <h1><b>Bug 5560</b></h1> 
+        <h2><b>Bug Description:</b></h2>
+<p>
+        This is a deadlock.
+        <br>The following is an example of deadlock thread dump:
+<pre>"Thread-2": waiting to lock monitor 0x0000000008e0e518 (object 0x00000000ec2a0390, <br>    a org.apache.derby.client.am.LogicalConnection), which is held by "Thread-1"<br>"Thread-1": waiting to lock monitor 0x0000000008e0bc88 (object 0x00000000ec2a0330, <br>    a org.apache.derby.client.ClientXAConnection40$$EnhancerByMockitoWithCGLIB$$fa0b2c9e), which is held by "Thread-2"<br><br>Java stack information for the threads listed above:<br>===================================================<br>"Thread-2":<br>    at org.apache.derby.client.am.LogicalConnection.nullPhysicalConnection(LogicalConnection.java:64)<br>    - waiting to lock <font color="red">&lt;0x00000000ec2a0390&gt; (a org.apache.derby.client.am.LogicalConnection)</font>
+    at org.apache.derby.client.ClientPooledConnection.close(ClientPooledConnection.java:204)
+    - locked &lt;0x00000000ec2a0330&gt; (a org.apache.derby.client.ClientXAConnection40$$EnhancerByMockitoWithCGLIB$$fa0b2c9e)
+    at org.apache.derby.client.ClientXAConnection.close(ClientXAConnection.java:132)
+    - locked <font color="blue">&lt;0x00000000ec2a0330&gt; (a org.apache.derby.client.ClientXAConnection40$$EnhancerByMockitoWithCGLIB$$fa0b2c9e)</font>
+    at org.apache.derby.client.ClientXAConnection40$$EnhancerByMockitoWithCGLIB$$fa0b2c9e.CGLIB$close$4(<generated>)<br>    at org.apache.derby.client.ClientXAConnection40$$EnhancerByMockitoWithCGLIB$$fa0b2c9e$$FastClassByMockitoWithCGLIB$$9a2a041b.invoke(<generated>)<br>    at org.mockito.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:216)<br>    at org.mockito.internal.creation.AbstractMockitoMethodProxy.invokeSuper(AbstractMockitoMethodProxy.java:10)<br>    at org.mockito.internal.invocation.realmethod.CGLIBProxyRealMethod.invoke(CGLIBProxyRealMethod.java:22)<br>    at org.mockito.internal.invocation.realmethod.FilteredCGLIBProxyRealMethod.invoke(FilteredCGLIBProxyRealMethod.java:27)<br>    at org.mockito.internal.invocation.InvocationImpl.callRealMethod(InvocationImpl.java:108)<br>    at org.mockito.internal.stubbing.answers.CallsRealMethods.answer(CallsRealMethods.java:36)<br>    at org.mockito.internal.stubbing.StubbedInvocationMatcher.answer(StubbedInvocationMatcher.java:34)<br>    at org.mockito.internal.handler.MockHandlerImpl.handle(MockHandlerImpl.java:91)<br>    at org.mockito.internal.handler.NullResultGuardian.handle(NullResultGuardian.java:29)<br>    at org.mockito.internal.handler.InvocationNotifierHandler.handle(InvocationNotifierHandler.java:38)<br>    at org.mockito.internal.creation.MethodInterceptorFilter.intercept(MethodInterceptorFilter.java:51)<br>    at org.apache.derby.client.ClientXAConnection40$$EnhancerByMockitoWithCGLIB$$fa0b2c9e.close(<generated>)<br>    at Derby5560$Thread2.run(Derby5560.java:70)<br>    <br>"Thread-1":<br>    at org.apache.derby.client.ClientPooledConnection.recycleConnection(ClientPooledConnection.java:353)<br>    - waiting to lock <font color="blue">&lt;0x00000000ec2a0330&gt; (a org.apache.derby.client.ClientXAConnection40$$EnhancerByMockitoWithCGLIB$$fa0b2c9e)</font>
+    at org.apache.derby.client.ClientXAConnection40$$EnhancerByMockitoWithCGLIB$$fa0b2c9e.CGLIB$recycleConnection$11(<generated>)<br>    at org.apache.derby.client.ClientXAConnection40$$EnhancerByMockitoWithCGLIB$$fa0b2c9e$$FastClassByMockitoWithCGLIB$$9a2a041b.invoke(<generated>)<br>    at org.mockito.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:216)<br>    at org.mockito.internal.creation.AbstractMockitoMethodProxy.invokeSuper(AbstractMockitoMethodProxy.java:10)<br>    at org.mockito.internal.invocation.realmethod.CGLIBProxyRealMethod.invoke(CGLIBProxyRealMethod.java:22)<br>    at org.mockito.internal.invocation.realmethod.FilteredCGLIBProxyRealMethod.invoke(FilteredCGLIBProxyRealMethod.java:27)<br>    at org.mockito.internal.invocation.InvocationImpl.callRealMethod(InvocationImpl.java:108)<br>    at org.mockito.internal.stubbing.answers.CallsRealMethods.answer(CallsRealMethods.java:36)<br>    at org.mockito.internal.stubbing.StubbedInvocationMatcher.answer(StubbedInvocationMatcher.java:34)<br>    at org.mockito.internal.handler.MockHandlerImpl.handle(MockHandlerImpl.java:91)<br>    at org.mockito.internal.handler.NullResultGuardian.handle(NullResultGuardian.java:29)<br>    at org.mockito.internal.handler.InvocationNotifierHandler.handle(InvocationNotifierHandler.java:38)<br>    at org.mockito.internal.creation.MethodInterceptorFilter.intercept(MethodInterceptorFilter.java:51)<br>    at org.apache.derby.client.ClientXAConnection40$$EnhancerByMockitoWithCGLIB$$fa0b2c9e.recycleConnection(<generated>)<br>    at org.apache.derby.client.am.LogicalConnection.close(LogicalConnection.java:91)<br>    - locked <font color="red">&lt;0x00000000ec2a0390&gt; (a org.apache.derby.client.am.LogicalConnection)</font>
+    at Derby5560$Thread1.run(Derby5560.java:47)
+    </generated></generated></generated></generated></generated></generated></pre>
+        More details about this bug are at <a href="https://issues.apache.org/jira/browse/DERBY-5560">DERBY-5560</a>
+		JIRA page.
+    </p>
+    
+    <h2>
+        <b>How To Reproduce: </b>
+    </h2>
+<p>
+        This bug is reproduced under derby 10.5.1.1 and JDK 1.6.0_33 and JDK 1.7.0_25.<br>Execute
+the following scripts to run the test to reproduce the bug (assume the
+location of the derby test project is derby_test_home). </p>
+<p>
+<b>Linux:</b>
+    <br>
+    <i>${derby_test_home}/scripts/5560.sh [--monitoroff]</i>
+    <br>
+    <b>Windows:</b>
+    <br>
+    <i>%derby_test_home%\scripts\5560.bat [--monitoroff]</i>
+    <br>
+   </p>
+    <p><b>Example:</b>
+        Use monitor to report and terminate the program when deadlock happens:<i><br>${derby_test_home}/scripts/5560.sh</i>
+    <br><br>
+        Turn off monitor:<br> <i> ${derby_test_home}/scripts/5560.sh
+            --monitoroff</i>
+    </p>
+    <table border="1">
+        <tbody>
+            <tr>
+                <td>Option</td>
+                <td>Function</td>
+
+
+            </tr>
+
+
+            <tr>
+                <td>--monitoroff, -mo</td>
+                <td>Turn off to stop reporting bug messages and ending program
+                    when test <br>runs into the expected concurrency bug which is
+                    a deadlock.<br> User has to terminate the program manually
+                    when this option is set.
+                </td>
+
+
+            </tr>
+        </tbody>
+    </table>
+</body></html>

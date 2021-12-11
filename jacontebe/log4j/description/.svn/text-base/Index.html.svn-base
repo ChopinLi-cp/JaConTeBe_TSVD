@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html><head>
+
+
+<meta charset="UTF-8"><title>log4j</title></head><body>
+<h2>Bug Summary</h2>
+
+	
+<table style="border-style: solid;" border="1">
+
+		<tbody><tr>
+			<td>Test</td>
+			<td>Bug ID</td>
+			<td>Bug Type</td>
+			<td>Bug Link</td>
+
+			<td>Buggy Project Version</td>
+			<td>Buggy Project Source</td>
+		</tr>
+		<tr>
+			<td><a href="38137.html">Test38137</a></td>
+			<td>38137</td>
+			<td>wait-notify deadlock</td>
+
+			<td>https://issues.apache.org/bugzilla/show_bug.cgi?id=38137</td>
+
+
+			<td>1.2.13</td>
+			<td>http://archive.apache.org/dist/logging/log4j/1.2.13/logging-log4j-1.2.13.zip</td>
+		</tr>
+		<tr>
+			<td><a href="41214.html">Test41214</a></td>
+
+			<td>41214</td>
+			<td>deadlock</td>
+			<td>https://issues.apache.org/bugzilla/show_bug.cgi?id=41214</td>
+			<td>1.2.13</td>
+			<td>http://archive.apache.org/dist/logging/log4j/1.2.13/logging-log4j-1.2.13.zip</td>
+		</tr>
+
+		<tr>
+			<td><a href="44032.html">Test44032</a></td>
+			<td>44032</td>
+			<td>race</td>
+			<td>https://issues.apache.org/bugzilla/show_bug.cgi?id=44032</td>
+			<td>1.2.15</td>
+
+			<td>http://archive.apache.org/dist/logging/log4j/1.2.15/apache-log4j-1.2.15.zip</td>
+		</tr>
+		<tr>
+			<td><a href="54325.html">Test54325</a></td>
+			<td>54325</td>
+			<td>race</td>
+			<td>https://issues.apache.org/bugzilla/show_bug.cgi?id=54325</td>
+
+			<td>1.2.13</td>
+			<td>http://archive.apache.org/dist/logging/log4j/1.2.13/logging-log4j-1.2.13.zip</td>
+		</tr>
+<tr>
+			<td><a href="50463.html">Test50463</a></td>
+			<td>50463</td>
+			<td>wait-notify deadlock</td>
+
+			<td>https://issues.apache.org/bugzilla/show_bug.cgi?id=50463</td>
+			<td>1.2.14</td>
+			<td>http://archive.apache.org/dist/logging/log4j/1.2.14/logging-log4j-1.2.14.zip</td>
+		</tr>
+
+	</tbody>
+</table>
+</body></html>

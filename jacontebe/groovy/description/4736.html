@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html><head>
+
+
+
+
+
+
+<meta charset="UTF-8"><title>groovy bug 4736</title></head><body>
+
+
+	<h1>
+		<b>Bug 4736</b>
+	</h1>
+	<h2>
+		<b>Bug Description:</b>
+	</h2>
+
+	<p>
+		This is a deadlock.<br>
+		This is a Java and native code level mixed deadlock bug.  Native method <b>java.lang.Class#forName0</b>  in thread "Compiling and instantiation 2" and native method <b>java.lang.Class#getDeclaredFields0</b>
+in thread "Compiling and instantiation 3" are acquiring the same lock.
+And both threads are acquiring the same lock on HashMap instance.<br>The following
+		is an example of  deadlocked thread dump:
+	
+
+	</p><pre>"Compiling and instantiation 3": waiting to lock monitor 0x000000000cc5b3a8 (object 0x00000007d6ce9040,<br>    a groovy.lang.GroovyClassLoader$InnerLoader), which is held by "Compiling and instantiation 2"<br>"Compiling and instantiation 2": waiting to lock monitor 0x000000000cc5bc98 (object 0x00000007d7da8070,<br>    a java.util.HashMap),which is held by "Compiling and instantiation 3"<br><br>Java stack information for the threads listed above:<br>===================================================<br>"Compiling and instantiation 3":<br>    <font color="red">at java.lang.Class.getDeclaredFields0(Native Method)</font>
+    at java.lang.Class.privateGetDeclaredFields(Class.java:2387)
+    at java.lang.Class.getDeclaredFields(Class.java:1796)
+    at org.codehaus.groovy.vmplugin.v5.Java5.configureClassNode(Java5.java:313)
+    at org.codehaus.groovy.ast.ClassNode.lazyClassInit(ClassNode.java:263)
+    - locked &lt;0x00000007d6fe9090&gt; (a java.lang.Object)
+    at org.codehaus.groovy.ast.ClassNode.getInterfaces(ClassNode.java:341)
+    at org.codehaus.groovy.ast.ClassNode.declaresInterface(ClassNode.java:929)
+    at org.codehaus.groovy.ast.ClassNode.implementsInterface(ClassNode.java:909)
+    at org.codehaus.groovy.classgen.AsmClassGenerator.doConvertAndCast(AsmClassGenerator.java:3842)
+    at org.codehaus.groovy.classgen.AsmClassGenerator.doConvertAndCast(AsmClassGenerator.java:3837)
+    at org.codehaus.groovy.classgen.AsmClassGenerator.storeThisInstanceField(AsmClassGenerator.java:2840)
+    at org.codehaus.groovy.classgen.AsmClassGenerator.visitFieldExpression(AsmClassGenerator.java:2766)
+    at org.codehaus.groovy.ast.expr.FieldExpression.visit(FieldExpression.java:38)
+    at org.codehaus.groovy.classgen.AsmClassGenerator.evaluateEqual(AsmClassGenerator.java:4050)
+    at org.codehaus.groovy.classgen.AsmClassGenerator.visitBinaryExpression(AsmClassGenerator.java:1485)
+    at org.codehaus.groovy.ast.expr.BinaryExpression.visit(BinaryExpression.java:49)
+    at org.codehaus.groovy.classgen.AsmClassGenerator.visitAndAutoboxBoolean(AsmClassGenerator.java:4122)
+    at org.codehaus.groovy.classgen.AsmClassGenerator.visitExpressionStatement(AsmClassGenerator.java:1466)
+    at org.codehaus.groovy.ast.stmt.ExpressionStatement.visit(ExpressionStatement.java:40)
+    at org.codehaus.groovy.ast.CodeVisitorSupport.visitBlockStatement(CodeVisitorSupport.java:35)
+    at org.codehaus.groovy.ast.ClassCodeVisitorSupport.visitBlockStatement(ClassCodeVisitorSupport.java:165)
+    at org.codehaus.groovy.classgen.AsmClassGenerator.visitBlockStatement(AsmClassGenerator.java:738)
+    at org.codehaus.groovy.ast.stmt.BlockStatement.visit(BlockStatement.java:69)
+    at org.codehaus.groovy.ast.ClassCodeVisitorSupport.visitClassCodeContainer(ClassCodeVisitorSupport.java:101)
+    at org.codehaus.groovy.ast.ClassCodeVisitorSupport.visitConstructorOrMethod(ClassCodeVisitorSupport.java:112)
+    at org.codehaus.groovy.classgen.AsmClassGenerator.visitStdMethod(AsmClassGenerator.java:626)
+    at org.codehaus.groovy.classgen.AsmClassGenerator.visitConstructorOrMethod(AsmClassGenerator.java:601)
+    at org.codehaus.groovy.ast.ClassCodeVisitorSupport.visitConstructor(ClassCodeVisitorSupport.java:119)
+    at org.codehaus.groovy.classgen.AsmClassGenerator.visitConstructor(AsmClassGenerator.java:688)
+    at org.codehaus.groovy.ast.ClassNode.visitContents(ClassNode.java:1035)
+    at org.codehaus.groovy.ast.ClassCodeVisitorSupport.visitClass(ClassCodeVisitorSupport.java:50)
+    at org.codehaus.groovy.classgen.AsmClassGenerator.visitClass(AsmClassGenerator.java:276)
+    at org.codehaus.groovy.control.CompilationUnit$12.call(CompilationUnit.java:748)
+    at org.codehaus.groovy.control.CompilationUnit.applyToPrimaryClassNodes(CompilationUnit.java:942)
+    at org.codehaus.groovy.control.CompilationUnit.doPhaseOperation(CompilationUnit.java:519)
+    at org.codehaus.groovy.control.CompilationUnit.processPhaseOperations(CompilationUnit.java:497)
+    at org.codehaus.groovy.control.CompilationUnit.compile(CompilationUnit.java:474)
+    at groovy.lang.GroovyClassLoader.doParseClass(GroovyClassLoader.java:306)
+    at groovy.lang.GroovyClassLoader.parseClass(GroovyClassLoader.java:283)
+   - locked &lt;0x00000007d7da8070&gt; (a java.util.HashMap)
+    at groovy.lang.GroovyClassLoader.parseClass(GroovyClassLoader.java:267)
+    at groovy.lang.GroovyClassLoader.parseClass(GroovyClassLoader.java:263)
+    at groovy.lang.GroovyClassLoader.recompile(GroovyClassLoader.java:777)
+    - locked <font color="blue">&lt;0x00000007d7da8070&gt; (a java.util.HashMap)</font>
+    at groovy.lang.GroovyClassLoader.loadClass(GroovyClassLoader.java:737)
+    at groovy.lang.GroovyClassLoader$InnerLoader.loadClass(GroovyClassLoader.java:449)
+    at groovy.lang.GroovyClassLoader.loadClass(GroovyClassLoader.java:793)
+    at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+    at java.lang.Class.forName0(Native Method)
+    at java.lang.Class.forName(Class.java:190)
+    at test.C2.class$(test.C2)
+    at test.C2.$get$$class$test$C4(test.C2)
+    at test.C2.&lt;init>(test.C2:7)
+    at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+    at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+    at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+    at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+    at Groovy4736$3.run(Groovy4736.java:169)
+    
+    "Compiling and instantiation 2":
+    at groovy.lang.GroovyClassLoader.recompile(GroovyClassLoader.java:776)    
+    - waiting to lock <font color="blue">&lt;0x00000007d7da8070&gt; (a java.util.HashMap)</font>
+    at groovy.lang.GroovyClassLoader.loadClass(GroovyClassLoader.java:737)
+    at groovy.lang.GroovyClassLoader$InnerLoader.loadClass(GroovyClassLoader.java:449)
+    at groovy.lang.GroovyClassLoader.loadClass(GroovyClassLoader.java:793)
+    at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+    <font color="red">at java.lang.Class.forName0(Native Method)</font>
+    at java.lang.Class.forName(Class.java:190)
+    at test.D1.class$(test.D1)
+    at test.D1.$get$$class$test$E3(test.D1)
+    at test.D1.&lt;init>(test.D1:4)<br>    at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br>    at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)<br>    at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br>    at java.lang.reflect.Constructor.newInstance(Constructor.java:526)<br>    at Groovy4736$3.run(Groovy4736.java:169)	<br>	</init></init></pre>
+More details about this bug are at <a href="http://jira.codehaus.org/browse/GROOVY-4736">GROOVY-4736</a>
+		JIRA page.
+	
+	
+
+	<h2>
+		<b>How To Reproduce: </b>
+	</h2>
+<p>
+		This bug is reproduced under groovy 1.7.9 and JDK 1.6.0_33.
+	<br>Execute
+the following scripts to run the test to reproduce the bug (assume the
+location of the groovy test project is groovy_test_home). </p>
+<p>
+		<b>Linux:</b><br> <i>${groovy_test_home}/scripts/4736.sh
+			[--threadnum arg] [--monitoroff]</i><br> <b>Windows:</b><br> <i>%groovy_test_home%\scripts\4736.bat
+			[--threadnum arg] [--monitoroff]</i>
+	</p>
+	<p>
+		The default argument values will be taken if not specified.For
+		example, <br> <i>${groovy_test_home}/scripts/4736.sh</i> <br>is
+		the same as <br> <i>${groovy_test_home}/scripts/4736.sh
+			--threadnum 3</i>
+	</p>
+
+	<table border="1">
+		<tbody><tr>
+			<td>Option</td>
+			<td>Function</td>
+			<td>Default Value</td>
+			<td>Valid Values</td>
+		</tr>
+		<tr>
+			<td>--threadnum, -tn</td>
+			<td>set the number of threads, when the test checks whether a race could happen. Default value is 3 if
+this option is not set explicitly.</td>
+			<td>3</td>
+			<td>integer</td>
+		</tr>
+
+		<tr>
+			<td>--monitoroff, -mo</td>
+			<td>Turn off to stop reporting bug messages and ending program
+				when the test runs into the expected concurrency bug which is a
+				deadlock.<br> User has to terminate the program manually when
+				this option is set
+			</td>
+			<td>N/A
+</td>
+			<td>N/A
+</td>
+		</tr>
+	</tbody></table>
+</body></html>

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/conbenchmark/!svn/ver/1233/trunk/benchmarks/lib
+END
+jacontebe-1.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/conbenchmark/!svn/ver/1168/trunk/benchmarks/lib/jacontebe-1.0.jar
+END
+asm-all-5.0.3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/conbenchmark/!svn/ver/1131/trunk/benchmarks/lib/asm-all-5.0.3.jar
+END
+powermock-mockito-1.5.3-full.jar
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/conbenchmark/!svn/ver/1233/trunk/benchmarks/lib/powermock-mockito-1.5.3-full.jar
+END
+coring-1.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/conbenchmark/!svn/ver/872/trunk/benchmarks/lib/coring-1.4.jar
+END
+mockito-all-1.9.5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/conbenchmark/!svn/ver/1233/trunk/benchmarks/lib/mockito-all-1.9.5.jar
+END

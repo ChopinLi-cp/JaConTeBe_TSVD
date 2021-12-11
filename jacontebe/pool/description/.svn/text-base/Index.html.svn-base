@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Pool</title>
+</head>
+<body>
+	<h2>Bug Summary</h2>
+	<table
+		style="border-bottom-style: solid; border-top-style: solid; border-left-style: solid; border-right-style: solid"
+		border="1">
+		<tr>
+			<td>Test</td>
+			<td>Bug ID</td>
+			<td>Bug Type</td>
+			<td>Bug Link</td>
+			<td>Buggy Project Version</td>
+			<td>Buggy project Source</td>
+		</tr>
+		<tr>
+			<td><a href="120.html">Test120</a></td>
+			<td>120</td>
+			<td>race</td>
+			<td>https://issues.apache.org/jira/browse/POOL-120</td>
+
+
+			<td>pool 1.4 snapshot</td>
+			<td><a href="http://svn.apache.org/repos/asf/commons/proper/pool/trunk">http://svn.apache.org/repos/asf/commons/proper/pool/trunk</a> revision: 609486</td>
+		</tr>
+		<tr>
+			<td><a href="146.html">Test146</a></td>
+			<td>146</td>
+			<td>wait-notify deadlock</td>
+			<td>https://issues.apache.org/jira/browse/POOL-146</td>
+			<td>pool 1.5</td>
+			<td><a href="http://archive.apache.org/dist/commons/pool/source/commons-pool-1.5-src.zip">http://archive.apache.org/dist/commons/pool/source/commons-pool-1.5-src.zip</a></td>
+		</tr>
+		<tr>
+			<td><a href="149.html">Test149</a></a></td>
+			<td>149</td>
+			<td>wait-notify deadlock</td>
+			<td>https://issues.apache.org/jira/browse/POOL-149</td>
+			<td>pool 1.5</td>
+			<td><a href="http://archive.apache.org/dist/commons/pool/source/commons-pool-1.5-src.zip">http://archive.apache.org/dist/commons/pool/source/commons-pool-1.5-src.zip</a></td>
+		</tr>
+		<tr>
+			<td><a href="162.html">Test162</a></a></td>
+			<td>162</td>
+			<td>wait-notify deadlock</td>
+			<td>https://issues.apache.org/jira/browse/POOL-162</td>
+			<td>pool 1.5</td>
+			<td><a href="http://archive.apache.org/dist/commons/pool/source/commons-pool-1.5-src.zip">http://archive.apache.org/dist/commons/pool/source/commons-pool-1.5-src.zip</a></td>
+		</tr>
+		<tr>
+			<td><a href="46.html">Test46</a></td>
+			<td>46</td>
+			<td>inconsistent synchronization</td>
+			<td>https://issues.apache.org/jira/browse/POOL-46</td>
+			<td>pool 1.2</td>
+			<td><a href="http://archive.apache.org/dist/commons/pool/source/commons-pool-1.2-src.zip">http://archive.apache.org/dist/commons/pool/source/commons-pool-1.2-src.zip</a></td>
+		</tr>
+
+	</table>
+</body>
+</html>

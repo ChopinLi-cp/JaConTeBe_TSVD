@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/conbenchmark/!svn/ver/1390/trunk/benchmarks/derby/scripts
+END
+all.sh
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/conbenchmark/!svn/ver/990/trunk/benchmarks/derby/scripts/all.sh
+END
+jacontebe.sh
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/conbenchmark/!svn/ver/977/trunk/benchmarks/derby/scripts/jacontebe.sh
+END
+prepare.bat
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/conbenchmark/!svn/ver/1261/trunk/benchmarks/derby/scripts/prepare.bat
+END
+4129.bat
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/conbenchmark/!svn/ver/1261/trunk/benchmarks/derby/scripts/4129.bat
+END
+5560.bat
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/conbenchmark/!svn/ver/1261/trunk/benchmarks/derby/scripts/5560.bat
+END
+5561.bat
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/conbenchmark/!svn/ver/1261/trunk/benchmarks/derby/scripts/5561.bat
+END
+764.bat
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/conbenchmark/!svn/ver/1261/trunk/benchmarks/derby/scripts/764.bat
+END
+4129.sh
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/conbenchmark/!svn/ver/977/trunk/benchmarks/derby/scripts/4129.sh
+END
+5447.bat
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/conbenchmark/!svn/ver/1261/trunk/benchmarks/derby/scripts/5447.bat
+END
+5560.sh
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/conbenchmark/!svn/ver/977/trunk/benchmarks/derby/scripts/5560.sh
+END
+5561.sh
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/conbenchmark/!svn/ver/977/trunk/benchmarks/derby/scripts/5561.sh
+END
+764.sh
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/conbenchmark/!svn/ver/977/trunk/benchmarks/derby/scripts/764.sh
+END
+5447.sh
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/conbenchmark/!svn/ver/977/trunk/benchmarks/derby/scripts/5447.sh
+END

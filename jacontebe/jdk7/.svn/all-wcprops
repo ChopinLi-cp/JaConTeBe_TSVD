@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/conbenchmark/!svn/ver/1390/trunk/benchmarks/jdk7
+END
+rmid.security.policy
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/conbenchmark/!svn/ver/638/trunk/benchmarks/jdk7/rmid.security.policy
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/conbenchmark/!svn/ver/1168/trunk/benchmarks/jdk7/.classpath
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/conbenchmark/!svn/ver/1036/trunk/benchmarks/jdk7/.project
+END
+security.policy
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/conbenchmark/!svn/ver/638/trunk/benchmarks/jdk7/security.policy
+END
