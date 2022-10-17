@@ -1,6 +1,6 @@
 cd $(cd `dirname $0`/..; pwd)
 
-function compile_and_run() 
+function compile_and_run_0()
 {
     mkdir -p bin
     if [ -z ${compile_dependencies} ]; then
@@ -11,6 +11,19 @@ function compile_and_run()
         runtime_dependencies=${compile_dependencies}:bin
     fi
     ${JAVAL}java ${Opt} -cp ${runtime_dependencies} ${class_to_run} $*
+}
+
+function compile_and_run()
+{
+    mkdir -p bin
+    if [ -z ${compile_dependencies} ]; then
+        compile_dependencies=lib/*:../lib/*
+    fi
+    ${JAVAL}javac -cp ${compile_dependencies} ${classes_to_compile} -d bin
+    if [ -z ${runtime_dependencies} ]; then
+        runtime_dependencies=${compile_dependencies}:bin
+    fi
+    ${JAVAL}java ${Opt} -javaagent:${HOME}/.m2/repository/asm-simple-project/agent/0.1-SNAPSHOT/agent-0.1-SNAPSHOT.jar -cp ${runtime_dependencies} ${class_to_run} $*
 }
 
 function check_java_version()

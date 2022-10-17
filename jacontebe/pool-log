@@ -1,0 +1,367 @@
+=========================
+Starting scripts/120.sh
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+********************************
+Starting test: pool120
+Expected bug type: race
+********************************
+
+ Total # Conflicting items are = 0
+[]
+ Total # Thread Count = 1
+[1]
+=========================
+=========================
+Starting scripts/146.sh
+ADD CurrentThreadId = 1
+********************************
+Starting test: pool146
+Expected bug type: wait-notify deadlock
+This test should finish in 30 seconds.
+********************************
+
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+Suspicious forever waiting thread is not detected.
+=========================
+=========================
+Starting scripts/149.sh
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+********************************
+Starting test: pool149
+Expected bug type: wait-notify deadlock
+This test should finish in 30 seconds.
+********************************
+
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+Suspicious forever waiting thread is not detected.
+=========================
+=========================
+Starting scripts/162.sh
+********************************
+Starting test: pool162
+Expected bug type: wait-notify deadlock
+This test should finish in 30 seconds.
+********************************
+
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+Suspicious forever waiting thread is not detected.
+=========================
+=========================
+Starting scripts/46.sh
+********************************
+Starting test: pool46
+Expected bug type: inconsistent synchronization
+This test should finish in 30 seconds.
+********************************
+
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+Now starting proper synchronized version:
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+Proper synchronized version's execution time is 131 ms
+ADD CurrentThreadId = 1
+Now starting not synchronized version:
+This could be an endless loop.
+ADD CurrentThreadId = 1
+Not synchronized version's execution time is 35 ms
+ Total # Conflicting items are = 0
+[]
+ Total # Thread Count = 2
+[1, 11]
+=========================

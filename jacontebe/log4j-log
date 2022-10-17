@@ -1,0 +1,1133 @@
+=========================
+Starting scripts/38137.sh
+********************************
+Starting test: log4j38137
+Expected bug type: wait-notify deadlock
+This test should finish in 30 seconds.
+********************************
+
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+Program has been forced to exit from forever waiting.
+=========================
+=========================
+Starting scripts/41214.sh
+********************************
+Starting test: log4j41214
+Expected bug type: deadlock
+This test should finish in 20 seconds.
+********************************
+
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+Program has been forced to exit from deadlock.
+=========================
+=========================
+Starting scripts/44032.sh
+********************************
+Starting test: log4j44032
+Expected bug type: race
+********************************
+
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 19
+ADD CurrentThreadId = 15
+ADD CurrentThreadId = 17
+ADD CurrentThreadId = 14
+ADD CurrentThreadId = 12
+ADD CurrentThreadId = 13
+ADD CurrentThreadId = 24
+ADD CurrentThreadId = 13
+ADD CurrentThreadId = 12
+ADD CurrentThreadId = 24
+ADD CurrentThreadId = 19
+ADD CurrentThreadId = 14
+ADD CurrentThreadId = 18
+ADD CurrentThreadId = 15
+ADD CurrentThreadId = 23
+ADD CurrentThreadId = 22
+ADD CurrentThreadId = 16
+ADD CurrentThreadId = 50
+ADD CurrentThreadId = 40
+ADD CurrentThreadId = 39
+ADD CurrentThreadId = 43
+ADD CurrentThreadId = 49
+ADD CurrentThreadId = 18
+ADD CurrentThreadId = 45
+ADD CurrentThreadId = 38
+ADD CurrentThreadId = 34
+ADD CurrentThreadId = 33
+ADD CurrentThreadId = 31
+ADD CurrentThreadId = 21
+ADD CurrentThreadId = 35
+ADD CurrentThreadId = 58
+ADD CurrentThreadId = 33
+ADD CurrentThreadId = 27
+ADD CurrentThreadId = 60
+ADD CurrentThreadId = 59
+ADD CurrentThreadId = 37
+ADD CurrentThreadId = 53
+ADD CurrentThreadId = 47
+ADD CurrentThreadId = 42
+ADD CurrentThreadId = 26
+ADD CurrentThreadId = 54
+ADD CurrentThreadId = 52
+ADD CurrentThreadId = 36
+ADD CurrentThreadId = 46
+ADD CurrentThreadId = 48
+ADD CurrentThreadId = 44
+ADD CurrentThreadId = 28
+ADD CurrentThreadId = 51
+ADD CurrentThreadId = 25
+ADD CurrentThreadId = 40
+ADD CurrentThreadId = 55
+ADD CurrentThreadId = 43
+ADD CurrentThreadId = 55
+ADD CurrentThreadId = 29
+ADD CurrentThreadId = 57
+ADD CurrentThreadId = 20
+ADD CurrentThreadId = 46
+ADD CurrentThreadId = 36
+ADD CurrentThreadId = 52
+ADD CurrentThreadId = 43
+ADD CurrentThreadId = 48
+ADD CurrentThreadId = 56
+ADD CurrentThreadId = 47
+ADD CurrentThreadId = 53
+ADD CurrentThreadId = 32
+ADD CurrentThreadId = 30
+ADD CurrentThreadId = 41
+ADD CurrentThreadId = 54
+ADD CurrentThreadId = 52
+ADD CurrentThreadId = 42
+ADD CurrentThreadId = 42
+ADD CurrentThreadId = 43
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 17
+ADD CurrentThreadId = 22
+ADD CurrentThreadId = 12
+ADD CurrentThreadId = 45
+ADD CurrentThreadId = 23
+ADD CurrentThreadId = 39
+ADD CurrentThreadId = 39
+ADD CurrentThreadId = 49
+ADD CurrentThreadId = 49
+ADD CurrentThreadId = 13
+ADD CurrentThreadId = 38
+ADD CurrentThreadId = 24
+ADD CurrentThreadId = 31
+ADD CurrentThreadId = 50
+ADD CurrentThreadId = 19
+ADD CurrentThreadId = 20
+ADD CurrentThreadId = 60
+ADD CurrentThreadId = 18
+ADD CurrentThreadId = 16
+ADD CurrentThreadId = 34
+ADD CurrentThreadId = 35
+ADD CurrentThreadId = 37
+ADD CurrentThreadId = 60
+ADD CurrentThreadId = 59
+ADD CurrentThreadId = 16
+ADD CurrentThreadId = 37
+ADD CurrentThreadId = 18
+ADD CurrentThreadId = 27
+ADD CurrentThreadId = 35
+ADD CurrentThreadId = 36
+ADD CurrentThreadId = 56
+ADD CurrentThreadId = 47
+ADD CurrentThreadId = 32
+ADD CurrentThreadId = 41
+ADD CurrentThreadId = 54
+ADD CurrentThreadId = 42
+ADD CurrentThreadId = 16
+************************************ From check_for_trap****
+ADD CurrentThreadId = 46
+ADD CurrentThreadId = 26
+ADD CurrentThreadId = 55
+ADD CurrentThreadId = 58
+ADD CurrentThreadId = 44
+ADD CurrentThreadId = 21
+ADD CurrentThreadId = 29
+ADD CurrentThreadId = 48
+ADD CurrentThreadId = 30
+ADD CurrentThreadId = 52
+ADD CurrentThreadId = 25
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 30
+ADD CurrentThreadId = 43
+ADD CurrentThreadId = 56
+ADD CurrentThreadId = 47
+ADD CurrentThreadId = 57
+ADD CurrentThreadId = 28
+ADD CurrentThreadId = 51
+ADD CurrentThreadId = 37
+ADD CurrentThreadId = 48
+ADD CurrentThreadId = 55
+ADD CurrentThreadId = 46
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 44
+ADD CurrentThreadId = 52
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 18
+ADD CurrentThreadId = 26
+ADD CurrentThreadId = 58
+ADD CurrentThreadId = 58
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 55
+ADD CurrentThreadId = 26
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+ADD CurrentThreadId = 46
+************************************ From check_for_trap****
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 57
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 51
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 52
+======>Lock is needed
+ADD CurrentThreadId = 18
+======>Lock is needed
+ADD CurrentThreadId = 43
+======>Lock is needed
+ADD CurrentThreadId = 47
+ADD CurrentThreadId = 58
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 26
+ADD CurrentThreadId = 48
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 37
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 47
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 57
+ADD CurrentThreadId = 46
+ADD CurrentThreadId = 11
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 57
+ADD CurrentThreadId = 17
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 11
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 22
+ADD CurrentThreadId = 12
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 12
+ADD CurrentThreadId = 39
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 39
+ADD CurrentThreadId = 45
+ADD CurrentThreadId = 23
+ADD CurrentThreadId = 49
+ADD CurrentThreadId = 38
+ADD CurrentThreadId = 13
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 49
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 13
+ADD CurrentThreadId = 24
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 24
+ADD CurrentThreadId = 31
+ADD CurrentThreadId = 34
+ADD CurrentThreadId = 50
+ADD CurrentThreadId = 31
+ADD CurrentThreadId = 19
+ADD CurrentThreadId = 20
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 27
+ADD CurrentThreadId = 32
+ADD CurrentThreadId = 36
+ADD CurrentThreadId = 59
+ADD CurrentThreadId = 35
+ADD CurrentThreadId = 54
+ADD CurrentThreadId = 60
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 19
+ADD CurrentThreadId = 59
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 54
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 35
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 31
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 60
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 36
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 54
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 31
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 59
+ADD CurrentThreadId = 41
+ADD CurrentThreadId = 29
+ADD CurrentThreadId = 21
+ADD CurrentThreadId = 16
+ADD CurrentThreadId = 21
+ADD CurrentThreadId = 29
+ADD CurrentThreadId = 56
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 56
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 55
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 28
+ADD CurrentThreadId = 44
+ADD CurrentThreadId = 25
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 44
+ADD CurrentThreadId = 30
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 30
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 26
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 37
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 58
+ADD CurrentThreadId = 51
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 48
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 51
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 17
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 45
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 12
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 22
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 39
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 17
+ADD CurrentThreadId = 22
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 45
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 23
+ADD CurrentThreadId = 38
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 13
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 23
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 49
+======>Lock is needed
+ADD CurrentThreadId = 38
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 24
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 27
+ADD CurrentThreadId = 34
+ADD CurrentThreadId = 20
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 60
+ADD CurrentThreadId = 50
+************************************ From check_for_trap****
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 19
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 27
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 34
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 50
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 32
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 20
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 59
+======>Lock is needed
+ADD CurrentThreadId = 36
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 35
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+======>Lock is needed
+ADD CurrentThreadId = 32
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 41
+************************************ From check_for_trap****
+ADD CurrentThreadId = 16
+ADD CurrentThreadId = 21
+ADD CurrentThreadId = 56
+ADD CurrentThreadId = 29
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 25
+ADD CurrentThreadId = 28
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 28
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 44
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 30
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 51
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 45
+ADD CurrentThreadId = 22
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 23
+ADD CurrentThreadId = 38
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 34
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 27
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 32
+ADD CurrentThreadId = 20
+ADD CurrentThreadId = 50
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 21
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 29
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 25
+ADD CurrentThreadId = 28
+************************************ From check_for_trap****
+======>Lock is needed
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+
+Finished test: Bug has been reproduced successfully.
+ Total # Conflicting items are = 4
+[org/apache/log4j/spi/ThrowableInformation||90|0|0:org/apache/log4j/spi/ThrowableInformation||90|0|0, org/apache/log4j/spi/ThrowableInformation||91|0|0:org/apache/log4j/spi/ThrowableInformation||90|0|0, org/apache/log4j/spi/ThrowableInformation||93|0|0:org/apache/log4j/spi/ThrowableInformation||90|0|0, Test44032| |17|0|0:Test44032| |17|0|0]
+ Total # Thread Count = 51
+[1, 11, 19, 15, 14, 12, 17, 13, 24, 18, 23, 22, 16, 50, 40, 39, 43, 49, 45, 38, 31, 21, 33, 34, 35, 58, 27, 60, 59, 37, 53, 47, 42, 26, 54, 52, 36, 46, 48, 44, 28, 51, 25, 55, 29, 57, 20, 56, 32, 30, 41]
+=========================
+=========================
+Starting scripts/50463.sh
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+********************************
+Starting test: log4j50463
+Expected bug type: deadlock
+This test should finish in 30 seconds.
+********************************
+
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 15
+ADD CurrentThreadId = 14
+ADD CurrentThreadId = 23
+ADD CurrentThreadId = 16
+ADD CurrentThreadId = 20
+ADD CurrentThreadId = 18
+ADD CurrentThreadId = 17
+ADD CurrentThreadId = 21
+ADD CurrentThreadId = 19
+ADD CurrentThreadId = 22
+ADD CurrentThreadId = 23
+ADD CurrentThreadId = 17
+ADD CurrentThreadId = 21
+ADD CurrentThreadId = 18
+ADD CurrentThreadId = 20
+ADD CurrentThreadId = 14
+ADD CurrentThreadId = 20
+ADD CurrentThreadId = 20
+ADD CurrentThreadId = 18
+ADD CurrentThreadId = 14
+ADD CurrentThreadId = 18
+ADD CurrentThreadId = 18
+ADD CurrentThreadId = 18
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 18
+ADD CurrentThreadId = 18
+Program has been forced to exit from forever waiting.
+=========================
+=========================
+Starting scripts/54325.sh
+********************************
+Starting test: log4j54325
+Expected bug type: race
+********************************
+
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ Total # Conflicting items are = 0
+[]
+ Total # Thread Count = 1
+[1]
+=========================

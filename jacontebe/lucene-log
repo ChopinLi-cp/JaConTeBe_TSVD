@@ -1,0 +1,616 @@
+=========================
+Starting scripts/1544.sh
+.ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+********************************
+Starting test: lucene1544
+Expected bug type: deadlock
+This test should finish in 30 seconds.
+********************************
+
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+E
+Time: 5.653
+There was 1 error:
+1) testAddIndexesByIndexReader(org.apache.lucene.Test1544)java.lang.NullPointerException
+	at agent.Utility.updateTPHistory(Utility.java:142)
+	at agent.Utility.onCall(Utility.java:275)
+	at agent.Proxy.getFieldVariables(Proxy.java:33)
+	at org.apache.lucene.analysis.CharArraySet.add(CharArraySet.java:120)
+	at org.apache.lucene.analysis.CharArraySet.add(CharArraySet.java:106)
+	at org.apache.lucene.analysis.CharArraySet.add(CharArraySet.java:238)
+	at java.util.AbstractCollection.addAll(AbstractCollection.java:344)
+	at org.apache.lucene.analysis.StopFilter.makeStopSet(StopFilter.java:109)
+	at org.apache.lucene.analysis.StopFilter.makeStopSet(StopFilter.java:98)
+	at org.apache.lucene.analysis.standard.StandardAnalyzer.<init>(StandardAnalyzer.java:103)
+	at org.apache.lucene.analysis.standard.StandardAnalyzer.<init>(StandardAnalyzer.java:93)
+	at org.apache.lucene.Test1544.getWriter(Test1544.java:114)
+	at org.apache.lucene.Test1544.createIndex(Test1544.java:121)
+	at org.apache.lucene.Test1544.testAddIndexesByIndexReader(Test1544.java:85)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+FAILURES!!!
+Tests run: 1,  Failures: 0,  Errors: 1
+
+ Total # Conflicting items are = 0
+[]
+ Total # Thread Count = 2
+[1, 11]
+=========================
+=========================
+Starting scripts/2783.sh
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+.ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+********************************
+Starting test: lucene2783
+Expected bug type: notify-wait deadlock
+This test should finish in 30 seconds.
+********************************
+
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 11
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+ADD CurrentThreadId = 1
+NOTE: random seed of testcase 'testAtomicUpdates' was: -3296693025673024564
+E
+Time: 8.361
+There was 1 error:
+1) testAtomicUpdates(org.apache.lucene.index.Test2783)java.lang.LinkageError: loader (instance of  sun/misc/Launcher$AppClassLoader): attempted  duplicate class definition for name: "org/apache/lucene/store/RAMFile"
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:763)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+	at java.net.URLClassLoader.defineClass(URLClassLoader.java:467)
+	at java.net.URLClassLoader.access$100(URLClassLoader.java:73)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:368)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:362)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:361)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at org.apache.lucene.store.MockRAMDirectory.createOutput(MockRAMDirectory.java:235)
+	at org.apache.lucene.index.SegmentInfos.write(SegmentInfos.java:330)
+	at org.apache.lucene.index.SegmentInfos.prepareCommit(SegmentInfos.java:788)
+	at org.apache.lucene.index.SegmentInfos.commit(SegmentInfos.java:872)
+	at org.apache.lucene.index.IndexWriter.init(IndexWriter.java:1591)
+	at org.apache.lucene.index.IndexWriter.<init>(IndexWriter.java:1334)
+	at org.apache.lucene.index.Test2783$MockIndexWriter.<init>(Test2783.java:52)
+	at org.apache.lucene.index.Test2783.runTest(Test2783.java:145)
+	at org.apache.lucene.index.Test2783.testAtomicUpdates(Test2783.java:209)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at org.apache.lucene.util.LuceneTestCase293.runBare(LuceneTestCase293.java:234)
+
+FAILURES!!!
+Tests run: 1,  Failures: 0,  Errors: 1
+
+ Total # Conflicting items are = 0
+[]
+ Total # Thread Count = 2
+[1, 11]
+=========================
